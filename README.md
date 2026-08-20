@@ -64,93 +64,96 @@
             display: flex;
         }
 
-        .welcome-screen { background: var(--light-bg); padding: 20px; text-align: center; }
-        .welcome-logo { font-size: 50px; color: var(--secondary-blue); margin-bottom: 5px; margin-top: 15px; }
-        .accounts-list { width: 100%; margin: 10px 0; max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
-        .account-card-saved { background: white; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition); }
-        .account-card-saved:hover { border-color: var(--secondary-blue); transform: translateY(-2px); }
+        .welcome-screen { background: var(--light-bg); padding: 20px; text-align: center;[cite: 4]}
+        .welcome-logo { font-size: 50px; color: var(--secondary-blue); margin-bottom: 5px; margin-top: 15px;[cite: 4]}
+        .accounts-list { width: 100%; margin: 10px 0; max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;[cite: 4]}
+        .account-card-saved { background: white; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition);[cite: 4]}
+        .account-card-saved:hover { border-color: var(--secondary-blue); transform: translateY(-2px);[cite: 4]}
         
-        .register-screen { background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%); color: white; padding: 15px; justify-content: center; align-items: center; }
-        .form-group { width: 100%; margin-bottom: 8px; text-align: right; }
-        .form-group label { font-size: 11px; color: #cbd5e1; display: block; margin-bottom: 2px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: white; font-size: 11px; outline: none; }
-        .form-group select option { background: #1e3a8a; color: white; }
+        .register-screen { background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%); color: white; padding: 15px; justify-content: center; align-items: center;[cite: 4]}
+        .form-group { width: 100%; margin-bottom: 8px; text-align: right;[cite: 4]}
+        .form-group label { font-size: 11px; color: #cbd5e1; display: block; margin-bottom: 2px;[cite: 4]}
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: white; font-size: 11px; outline: none;[cite: 4]}
+        .form-group select option { background: #1e3a8a; color: white;[cite: 4]}
         
-        .btn-main { width: 100%; background: var(--secondary-blue); color: white; border: none; padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246,.3); margin-top: 6px; transition: var(--transition); }
-        .btn-main:hover { background: #2563eb; }
-        .btn-secondary { background: transparent; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-main { width: 100%; background: var(--secondary-blue); color: white; border: none; padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246,.3); margin-top: 6px; transition: var(--transition);[cite: 4]}
+        .btn-main:hover { background: #2563eb;[cite: 4]}
+        .btn-secondary { background: transparent; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.2);[cite: 4]}
         
-        .top-navbar { background: white; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 10; }
-        .nav-brand { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 900; color: var(--primary-blue); }
-        .nav-links { display: flex; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
-        .nav-btn { background: #f1f5f9; border: none; padding: 4px 6px; border-radius: 5px; font-size: 8px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
-        .nav-btn.active, .nav-btn:hover { background: var(--secondary-blue); color: white; }
+        .top-navbar { background: white; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 10;[cite: 4]}
+        .nav-brand { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 900; color: var(--primary-blue);[cite: 4]}
+        .nav-links { display: flex; gap: 2px; flex-wrap: wrap; justify-content: flex-end;[cite: 4]}
+        .nav-btn { background: #f1f5f9; border: none; padding: 4px 6px; border-radius: 5px; font-size: 8px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: var(--transition);[cite: 4]}
+        .nav-btn.active, .nav-btn:hover { background: var(--secondary-blue); color: white;[cite: 4]}
         
-        .dashboard-content { padding: 12px; }
-        .profile-header-card { background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue)); color: white; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .info-card-item { background: white; padding: 9px 12px; border-radius: 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e2e8f0; font-size: 11px; }
-        .info-card-item .label-side { display: flex; align-items: center; gap: 8px; color: var(--text-muted); }
-        .info-card-item .value-side { font-weight: 700; color: var(--text-main); }
-        .info-card-item i { color: var(--secondary-blue); }
+        .dashboard-content { padding: 12px;[cite: 4]}
+        .profile-header-card { background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue)); color: white; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;[cite: 4]}
+        .info-card-item { background: white; padding: 9px 12px; border-radius: 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e2e8f0; font-size: 11px;[cite: 4]}
+        .info-card-item .label-side { display: flex; align-items: center; gap: 8px; color: var(--text-muted);[cite: 4]}
+        .info-card-item .value-side { font-weight: 700; color: var(--text-main);[cite: 4]}
+        .info-card-item i { color: var(--secondary-blue);[cite: 4]}
         
-        .digital-id-card { background: white; border-radius: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
-        .qr-box { width: 42px; height: 42px; background: #eff6ff; color: var(--secondary-blue); display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 18px; }
+        .digital-id-card { background: white; border-radius: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px;[cite: 4]}
+        .qr-box { width: 42px; height: 42px; background: #eff6ff; color: var(--secondary-blue); display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 18px;[cite: 4]}
         
-        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-        .dash-card { background: white; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; cursor: pointer; transition: var(--transition); min-height: 90px; }
-        .dash-card:hover { border-color: var(--secondary-blue); transform: translateY(-2px); }
-        .dash-card-icon { width: 28px; height: 28px; background: #eff6ff; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-bottom: 6px; }
-        .dash-card-title { font-size: 10px; font-weight: 700; color: var(--text-main); }
-        .dash-card-value { font-size: 10px; color: var(--text-muted); font-weight: bold; margin-top: 2px; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;[cite: 4]}
+        .dash-card { background: white; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; cursor: pointer; transition: var(--transition); min-height: 90px;[cite: 4]}
+        .dash-card:hover { border-color: var(--secondary-blue); transform: translateY(-2px);[cite: 4]}
+        .dash-card-icon { width: 28px; height: 28px; background: #eff6ff; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-bottom: 6px;[cite: 4]}
+        .dash-card-title { font-size: 10px; font-weight: 700; color: var(--text-main);[cite: 4]}
+        .dash-card-value { font-size: 10px; color: var(--text-muted); font-weight: bold; margin-top: 2px;[cite: 4]}
         
-        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
-        .chat-bubble { background: #f1f5f9; padding: 8px 10px; border-radius: 8px; font-size: 11px; max-width: 85%; align-self: flex-start; border-right: 3px solid var(--secondary-blue); }
-        .chat-bubble.mine { background: #eff6ff; align-self: flex-end; border-right: none; border-left: 3px solid var(--accent-green); }
-        .chat-sender { font-size: 9px; font-weight: bold; color: var(--primary-blue); margin-bottom: 2px; }
-        .chat-input-area { display: flex; gap: 5px; margin-top: 8px; }
-        .chat-input-area input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 11px; outline: none; background: white; color: #1e293b; }
-        .chat-input-area button { background: var(--secondary-blue); color: white; border: none; padding: 0 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
-        
-        /* تصميم الكتب والفيديوهات والإعلانات والتذاكر */
-        .media-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
-        .media-info { display: flex; align-items: center; gap: 10px; }
-        .media-icon { width: 35px; height: 35px; background: #fee2e2; color: var(--accent-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-        .media-icon.video { background: #dbeafe; color: var(--secondary-blue); }
-        .media-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px; }
-        
-        .empty-notice { text-align: center; font-size: 10px; color: var(--text-muted); padding: 20px; background: white; border: 1px dashed #cbd5e1; border-radius: 10px; margin-top: 8px; }
+        /* تصميم صندوق الدردشة مع أزرار التعديل والحذف */
+        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;[cite: 4]}
+        .chat-bubble { background: #f1f5f9; padding: 8px 10px; border-radius: 8px; font-size: 11px; max-width: 85%; align-self: flex-start; border-right: 3px solid var(--secondary-blue); position: relative;[cite: 4]}
+        .chat-bubble.mine { background: #eff6ff; align-self: flex-end; border-right: none; border-left: 3px solid var(--accent-green);[cite: 4]}
+        .chat-sender { font-size: 9px; font-weight: bold; color: var(--primary-blue); margin-bottom: 2px; display: flex; justify-content: space-between; align-items: center;[cite: 4]}
+        .chat-actions-btns { display: flex; gap: 6px; font-size: 9px; margin-top: 4px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 3px; }
+        .chat-actions-btns button { background: none; border: none; cursor: pointer; font-size: 9px; font-weight: bold; display: flex; align-items: center; gap: 2px; }
+        .btn-edit-msg { color: var(--secondary-blue); }
+        .btn-del-msg { color: var(--accent-red); }
 
-        .admin-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 10px; display: none; }
-        .admin-upload-box.active { display: block; }
+        .chat-input-area { display: flex; gap: 5px; margin-top: 8px;[cite: 4]}
+        .chat-input-area input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 11px; outline: none; background: white; color: #1e293b;[cite: 4]}
+        .chat-input-area button { background: var(--secondary-blue); color: white; border: none; padding: 0 12px; border-radius: 8px; cursor: pointer; font-size: 12px;[cite: 4]}
+        
+        .media-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;[cite: 4]}
+        .media-info { display: flex; align-items: center; gap: 10px;[cite: 4]}
+        .media-icon { width: 35px; height: 35px; background: #fee2e2; color: var(--accent-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;[cite: 4]}
+        .media-icon.video { background: #dbeafe; color: var(--secondary-blue);[cite: 4]}
+        .media-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px;[cite: 4]}
+        
+        .empty-notice { text-align: center; font-size: 10px; color: var(--text-muted); padding: 20px; background: white; border: 1px dashed #cbd5e1; border-radius: 10px; margin-top: 8px;[cite: 4]}
 
-        /* قسم الإعلانات والتذاكر والأسئلة الشائعة */
-        .post-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 10px; }
-        .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 10px; font-weight: bold; color: var(--primary-blue); }
-        .post-body { font-size: 11px; color: var(--text-main); margin-bottom: 8px; line-height: 1.4; }
-        .post-actions { display: flex; gap: 10px; border-top: 1px solid #f1f5f9; padding-top: 6px; font-size: 10px; color: var(--text-muted); align-items: center; }
-        .post-actions button { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 10px; display: flex; align-items: center; gap: 4px; font-weight: bold; }
-        .post-actions button:hover { color: var(--secondary-blue); }
-        .comments-section { margin-top: 6px; border-top: 1px dashed #f1f5f9; padding-top: 6px; display: flex; flex-direction: column; gap: 4px; }
-        .comment-item { background: #f8fafc; padding: 5px 8px; border-radius: 6px; font-size: 10px; }
+        .admin-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 10px; display: none;[cite: 4]}
+        .admin-upload-box.active { display: block;[cite: 4]}
 
-        /* الأسئلة الشائعة Accordion */
-        .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 6px; overflow: hidden; }
-        .faq-question { padding: 10px; font-size: 11px; font-weight: bold; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
-        .faq-answer { padding: 10px; font-size: 10px; color: var(--text-muted); background: #f8fafc; border-top: 1px solid #f1f5f9; display: none; line-height: 1.4; }
-        .faq-item.active .faq-answer { display: block; }
+        .post-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 10px;[cite: 4]}
+        .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 10px; font-weight: bold; color: var(--primary-blue);[cite: 4]}
+        .post-body { font-size: 11px; color: var(--text-main); margin-bottom: 8px; line-height: 1.4;[cite: 4]}
+        .post-actions { display: flex; gap: 10px; border-top: 1px solid #f1f5f9; padding-top: 6px; font-size: 10px; color: var(--text-muted); align-items: center;[cite: 4]}
+        .post-actions button { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 10px; display: flex; align-items: center; gap: 4px; font-weight: bold;[cite: 4]}
+        .post-actions button:hover { color: var(--secondary-blue);[cite: 4]}
+        .comments-section { margin-top: 6px; border-top: 1px dashed #f1f5f9; padding-top: 6px; display: flex; flex-direction: column; gap: 4px;[cite: 4]}
+        .comment-item { background: #f8fafc; padding: 5px 8px; border-radius: 6px; font-size: 10px;[cite: 4]}
 
-        .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 100; padding: 15px; }
-        .modal-card { background: white; width: 100%; max-width: 320px; border-radius: 12px; padding: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); text-align: right; max-height: 80vh; overflow-y: auto; }
-        .admin-controls { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 8px; border-radius: 8px; margin-top: 8px; display: none; }
-        .admin-controls.active { display: block; }
-        .app-footer { text-align: center; padding: 6px; font-size: 9px; color: var(--text-muted); background: white; border-top: 1px solid #f1f5f9; margin-top: auto; }
+        .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 6px; overflow: hidden;[cite: 4]}
+        .faq-question { padding: 10px; font-size: 11px; font-weight: bold; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff;[cite: 4]}
+        .faq-answer { padding: 10px; font-size: 10px; color: var(--text-muted); background: #f8fafc; border-top: 1px solid #f1f5f9; display: none; line-height: 1.4;[cite: 4]}
+        .faq-item.active .faq-answer { display: block;[cite: 4]}
 
-        .quiz-container-ui { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px; }
-        .quiz-container-ui ul { list-style: none; padding: 0; margin: 0; }
-        .quiz-container-ui ul li { margin: 8px 0; }
-        .quiz-container-ui label { cursor: pointer; display: block; padding: 12px; background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 12px; }
-        .quiz-container-ui input[type="radio"] { display: none; }
-        .quiz-container-ui input[type="radio"]:checked + label { background: var(--secondary-blue); color: white; border-color: var(--primary-blue); font-weight: bold; }
+        .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 100; padding: 15px;[cite: 4]}
+        .modal-card { background: white; width: 100%; max-width: 320px; border-radius: 12px; padding: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); text-align: right; max-height: 80vh; overflow-y: auto;[cite: 4]}
+        .admin-controls { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 8px; border-radius: 8px; margin-top: 8px; display: none;[cite: 4]}
+        .admin-controls.active { display: block;[cite: 4]}
+        .app-footer { text-align: center; padding: 6px; font-size: 9px; color: var(--text-muted); background: white; border-top: 1px solid #f1f5f9; margin-top: auto;[cite: 4]}
+
+        .quiz-container-ui { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px;[cite: 4]}
+        .quiz-container-ui ul { list-style: none; padding: 0; margin: 0;[cite: 4]}
+        .quiz-container-ui ul li { margin: 8px 0;[cite: 4]}
+        .quiz-container-ui label { cursor: pointer; display: block; padding: 12px; background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 12px;[cite: 4]}
+        .quiz-container-ui input[type="radio"] { display: none;[cite: 4]}
+        .quiz-container-ui input[type="radio"]:checked + label { background: var(--secondary-blue); color: white; border-color: var(--primary-blue); font-weight: bold;[cite: 4]}
     </style>
 </head>
 <body>
@@ -288,7 +291,7 @@
                     </div>
                 </div>
 
-                <!-- ج. مكتبة الكتب والملزمة (PDF) مع رسالة الخط الصغير عند الفراغ -->
+                <!-- ج. مكتبة الكتب والملزمة (PDF) -->
                 <div id="section-books" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-book-pdf"></i> كتب وملزمة المادة (PDF)</h4>
                     
@@ -302,7 +305,7 @@
                     <div id="pdfBooksContainer"></div>
                 </div>
 
-                <!-- د. الفيديوهات التعليمية مع رسالة الخط الصغير عند الفراغ -->
+                <!-- د. الفيديوهات التعليمية -->
                 <div id="section-videos" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-video"></i> الفيديوهات والشروحات التعليمية</h4>
                     
@@ -316,7 +319,7 @@
                     <div id="videosContainer"></div>
                 </div>
 
-                <!-- هـ. قسم الإعلانات (الأدمن يكتب، والطلاب يتفاعلون 👍 ويردون) -->
+                <!-- هـ. قسم الإعلانات -->
                 <div id="section-ads" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-bullhorn"></i> لوحة الإعلانات الرسمية</h4>
                     
@@ -329,7 +332,7 @@
                     <div id="adsContainer"></div>
                 </div>
 
-                <!-- و. مركز الدعم والتذاكر (مستوحى من DECI) -->
+                <!-- و. مركز الدعم والتذاكر -->
                 <div id="section-support" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                         <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue);"><i class="fa-solid fa-headset"></i> مركز الدعم والتذاكر</h4>
@@ -338,7 +341,7 @@
                     <div id="supportTicketsContainer"></div>
                 </div>
 
-                <!-- ز. الأسئلة الشائعة FAQ Accordion -->
+                <!-- ز. الأسئلة الشائعة -->
                 <div id="section-faq" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</h4>
                     <div class="faq-item">
@@ -355,7 +358,7 @@
                     </div>
                 </div>
 
-                <!-- ح. مجتمع المادة (البوت باسم AI Assistant Bot) -->
+                <!-- ح. مجتمع المادة (تم دعم مسح وتعديل الرسائل وصلاحيات الأدمن) -->
                 <div id="section-community" style="display: none;">
                     <div class="chat-box" id="communityChatBox"></div>
                     <div class="chat-input-area">
@@ -625,7 +628,6 @@
             document.getElementById('section-community').style.display = (sectionName === 'community') ? 'block' : 'none';
         }
 
-        // إدارة الكتب (مع رسالة الخط الصغير)
         function renderPdfBooks() {
             let container = document.getElementById('pdfBooksContainer');
             if(!container) return;
@@ -664,7 +666,6 @@
             alert("تم نشر كتاب الـ PDF بنجاح!");
         }
 
-        // إدارة الفيديوهات (مع رسالة الخط الصغير)
         function renderVideos() {
             let container = document.getElementById('videosContainer');
             if(!container) return;
@@ -703,7 +704,6 @@
             alert("تم نشر الفيديو التعليمي بنجاح!");
         }
 
-        // إدارة الإعلانات (الأدمن ينشر، والطلاب يتفاعلون 👍 ويردون)
         function renderAds() {
             let container = document.getElementById('adsContainer');
             if(!container) return;
@@ -778,7 +778,6 @@
             renderAds();
         }
 
-        // مركز الدعم والتذاكر (مستوحى من DECI)
         function renderSupportTickets() {
             let container = document.getElementById('supportTicketsContainer');
             if(!container) return;
@@ -845,7 +844,6 @@
             renderSupportTickets();
         }
 
-        // الأسئلة الشائعة Accordion Toggle
         function toggleFaq(el) {
             let item = el.parentElement;
             item.classList.toggle('active');
@@ -893,20 +891,33 @@
             alert("تم تحديث البيانات بنجاح!");
         }
 
-        // الدردشة (البوت باسم AI Assistant Bot حصرياً)
-        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v7')) || [
-            { sender: "AI Assistant Bot", text: "أهلاً بك في مجتمع المنصة! يمكنك طرح استفساراتك هنا.", mine: false }
+        // تطوير قسم الدردشة المجتمعية (مسح وتعديل رسائل الطلاب + صلاحيات الأدمن للحذف)
+        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v8')) || [
+            { sender: "AI Assistant Bot", senderName: "AI Assistant Bot", text: "أهلاً بك في مجتمع المنصة! يمكنك طرح استفساراتك هنا.", mine: false }
         ];
 
         function loadCommunityChat() {
             let chatBox = document.getElementById('communityChatBox');
             if(!chatBox) return;
             chatBox.innerHTML = '';
-            communityMessages.forEach(msg => {
+            let acc = savedAccounts[currentStudentIndex];
+
+            communityMessages.forEach((msg, index) => {
+                let isMine = (msg.senderName === acc.name);
+                // يسمح للطالب تعديل وحذف رسالته، وللأدمن حذف أي رسالة للطلاب
+                let canDelete = isMine || isTeacherMode;
+                let canEdit = isMine;
+
                 chatBox.innerHTML += `
-                    <div class="chat-bubble ${msg.mine ? 'mine' : ''}">
-                        <div class="chat-sender"><span>${msg.sender}</span></div>
-                        <div>${msg.text}</div>
+                    <div class="chat-bubble ${isMine ? 'mine' : ''}">
+                        <div class="chat-sender">
+                            <span>${msg.senderName || msg.sender}</span>
+                        </div>
+                        <div id="msgText_${index}">${msg.text}</div>
+                        <div class="chat-actions-btns">
+                            ${canEdit ? `<button class="btn-edit-msg" onclick="editChatMessage(${index})"><i class="fa-solid fa-pen"></i> تعديل</button>` : ''}
+                            ${canDelete ? `<button class="btn-del-msg" onclick="deleteChatMessage(${index})"><i class="fa-solid fa-trash"></i> حذف</button>` : ''}
+                        </div>
                     </div>
                 `;
             });
@@ -919,15 +930,36 @@
             if(!text) return;
             let acc = savedAccounts[currentStudentIndex];
             
-            communityMessages.push({ sender: acc.name, text: text, mine: true });
-            localStorage.setItem('mozakra_chat_v7', JSON.stringify(communityMessages));
+            communityMessages.push({ 
+                sender: acc.name, 
+                senderName: acc.name, 
+                text: text, 
+                mine: true 
+            });
+            localStorage.setItem('mozakra_chat_v8', JSON.stringify(communityMessages));
             input.value = '';
             loadCommunityChat();
         }
 
+        function deleteChatMessage(index) {
+            if(confirm("هل أنت متأكد من رغبتك في حذف هذه الرسالة؟")) {
+                communityMessages.splice(index, 1);
+                localStorage.setItem('mozakra_chat_v8', JSON.stringify(communityMessages));
+                loadCommunityChat();
+            }
+        }
+
+        function editChatMessage(index) {
+            let newText = prompt("عدل رسالتك:", communityMessages[index].text);
+            if(newText !== null && newText.trim() !== "") {
+                communityMessages[index].text = newText.trim();
+                localStorage.setItem('mozakra_chat_v8', JSON.stringify(communityMessages));
+                loadCommunityChat();
+            }
+        }
+
         function checkEnterChat(e) { if(e.key === 'Enter') sendChatMessage(); }
 
-        // كويز 3 إعدادي (الـ 50 سؤال جاهزة في البنية)
         const quizData = [
             { question: "تعد قارة أمريكا الشمالية أكبر قارات العالم الجديد من حيث المساحة.", a: "صح", b: "خطأ", correct: "a" },
             { question: "يصب نهر الأمازون في المحيط الهادي.", a: "صح", b: "خطأ", correct: "b" },
@@ -983,7 +1015,7 @@
                     document.getElementById('quiz-header').innerHTML = `
                         <div style="text-align: center; padding: 20px 0;">
                             <i class="fa-solid fa-trophy" style="font-size: 40px; color: var(--accent-yellow); margin-bottom: 10px;"></i>
-                            <h2 style="color: var(--primary-blue); font-size: 16px;">أحسنت يا بطل!</h2>
+                            <h2 style="color: var(--primary-blue); مفتاح: 16px;">أحسنت يا بطل!</h2>
                             <h3 style="color: var(--accent-green); font-size: 18px; margin-top: 10px;">نتيجتك: ${score} من ${quizData.length}</h3>
                         </div>
                     `;
@@ -996,4 +1028,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
