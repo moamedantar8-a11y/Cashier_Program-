@@ -66,14 +66,14 @@
 
         .welcome-screen { background: var(--light-bg); padding: 20px; text-align: center; }
         .welcome-logo { font-size: 50px; color: var(--secondary-blue); margin-bottom: 5px; margin-top: 15px; }
-        .accounts-list { width: 100%; margin: 10px 0; max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .accounts-list { width: 100%; margin: 10px 0; max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
         .account-card-saved { background: white; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition); }
         .account-card-saved:hover { border-color: var(--secondary-blue); transform: translateY(-2px); }
         
         .register-screen { background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%); color: white; padding: 15px; justify-content: center; align-items: center; }
         .form-group { width: 100%; margin-bottom: 8px; text-align: right; }
         .form-group label { font-size: 11px; color: #cbd5e1; display: block; margin-bottom: 2px; }
-        .form-group input, .form-group select { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: white; font-size: 11px; outline: none; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: white; font-size: 11px; outline: none; }
         .form-group select option { background: #1e3a8a; color: white; }
         
         .btn-main { width: 100%; background: var(--secondary-blue); color: white; border: none; padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246,.3); margin-top: 6px; transition: var(--transition); }
@@ -96,7 +96,6 @@
         .digital-id-card { background: white; border-radius: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
         .qr-box { width: 42px; height: 42px; background: #eff6ff; color: var(--secondary-blue); display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 18px; }
         
-        /* تنسيق شبكة المتابعة لتكون متناسقة ومنظمة تماماً */
         .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
         .dash-card { background: white; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; cursor: pointer; transition: var(--transition); min-height: 90px; }
         .dash-card:hover { border-color: var(--secondary-blue); transform: translateY(-2px); }
@@ -104,25 +103,41 @@
         .dash-card-title { font-size: 10px; font-weight: 700; color: var(--text-main); }
         .dash-card-value { font-size: 10px; color: var(--text-muted); font-weight: bold; margin-top: 2px; }
         
-        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
         .chat-bubble { background: #f1f5f9; padding: 8px 10px; border-radius: 8px; font-size: 11px; max-width: 85%; align-self: flex-start; border-right: 3px solid var(--secondary-blue); }
         .chat-bubble.mine { background: #eff6ff; align-self: flex-end; border-right: none; border-left: 3px solid var(--accent-green); }
-        .chat-sender { font-size: 9px; font-weight: bold; color: var(--primary-blue); margin-bottom: 2px; display: flex; justify-content: space-between; }
+        .chat-sender { font-size: 9px; font-weight: bold; color: var(--primary-blue); margin-bottom: 2px; }
         .chat-input-area { display: flex; gap: 5px; margin-top: 8px; }
-        .chat-input-area input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 11px; outline: none; }
+        .chat-input-area input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 11px; outline: none; background: white; color: #1e293b; }
         .chat-input-area button { background: var(--secondary-blue); color: white; border: none; padding: 0 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
         
-        /* تصميم الكتب والفيديوهات */
-        .media-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; transition: var(--transition); }
-        .media-card:hover { border-color: var(--secondary-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        /* تصميم الكتب والفيديوهات والإعلانات والتذاكر */
+        .media-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
         .media-info { display: flex; align-items: center; gap: 10px; }
         .media-icon { width: 35px; height: 35px; background: #fee2e2; color: var(--accent-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
         .media-icon.video { background: #dbeafe; color: var(--secondary-blue); }
-        .media-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: var(--transition); }
-        .media-btn:hover { background: var(--secondary-blue); color: white; }
+        .media-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        
+        .empty-notice { text-align: center; font-size: 10px; color: var(--text-muted); padding: 20px; background: white; border: 1px dashed #cbd5e1; border-radius: 10px; margin-top: 8px; }
 
-        .admin-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 12px; display: none; }
+        .admin-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 10px; display: none; }
         .admin-upload-box.active { display: block; }
+
+        /* قسم الإعلانات والتذاكر والأسئلة الشائعة */
+        .post-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+        .post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 10px; font-weight: bold; color: var(--primary-blue); }
+        .post-body { font-size: 11px; color: var(--text-main); margin-bottom: 8px; line-height: 1.4; }
+        .post-actions { display: flex; gap: 10px; border-top: 1px solid #f1f5f9; padding-top: 6px; font-size: 10px; color: var(--text-muted); align-items: center; }
+        .post-actions button { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 10px; display: flex; align-items: center; gap: 4px; font-weight: bold; }
+        .post-actions button:hover { color: var(--secondary-blue); }
+        .comments-section { margin-top: 6px; border-top: 1px dashed #f1f5f9; padding-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+        .comment-item { background: #f8fafc; padding: 5px 8px; border-radius: 6px; font-size: 10px; }
+
+        /* الأسئلة الشائعة Accordion */
+        .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 6px; overflow: hidden; }
+        .faq-question { padding: 10px; font-size: 11px; font-weight: bold; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .faq-answer { padding: 10px; font-size: 10px; color: var(--text-muted); background: #f8fafc; border-top: 1px solid #f1f5f9; display: none; line-height: 1.4; }
+        .faq-item.active .faq-answer { display: block; }
 
         .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 100; padding: 15px; }
         .modal-card { background: white; width: 100%; max-width: 320px; border-radius: 12px; padding: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); text-align: right; max-height: 80vh; overflow-y: auto; }
@@ -133,8 +148,7 @@
         .quiz-container-ui { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px; }
         .quiz-container-ui ul { list-style: none; padding: 0; margin: 0; }
         .quiz-container-ui ul li { margin: 8px 0; }
-        .quiz-container-ui label { cursor: pointer; display: block; padding: 12px; background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 12px; transition: var(--transition); }
-        .quiz-container-ui label:hover { background: #eaf4ff; border-color: var(--secondary-blue); }
+        .quiz-container-ui label { cursor: pointer; display: block; padding: 12px; background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 12px; }
         .quiz-container-ui input[type="radio"] { display: none; }
         .quiz-container-ui input[type="radio"]:checked + label { background: var(--secondary-blue); color: white; border-color: var(--primary-blue); font-weight: bold; }
     </style>
@@ -193,7 +207,7 @@
             <button class="btn-main btn-secondary" onclick="showScreen('screen-welcome')">رجوع</button>
         </div>
 
-        <!-- 3. لوحة تحكم المنصة -->
+        <!-- 3. لوحة تحكم المنصة الاحترافية -->
         <div id="screen-dashboard" class="screen">
             <div class="top-navbar">
                 <div class="nav-brand"><i class="fa-solid fa-landmark"></i><span>Mozakra</span></div>
@@ -202,6 +216,9 @@
                     <button class="nav-btn" onclick="switchSection('stats')">المتابعة</button>
                     <button class="nav-btn" onclick="switchSection('books')">الكتب</button>
                     <button class="nav-btn" onclick="switchSection('videos')">الفيديوهات</button>
+                    <button class="nav-btn" onclick="switchSection('ads')">الإعلانات</button>
+                    <button class="nav-btn" onclick="switchSection('support')">الدعم</button>
+                    <button class="nav-btn" onclick="switchSection('faq')">الأسئلة</button>
                     <button class="nav-btn" onclick="switchSection('community')">المجتمع</button>
                     <button class="nav-btn" id="teacherBadgeBtn" style="background: #fef08a; color: #854d0e; display: none;"><i class="fa-solid fa-chalkboard"></i> أدمن</button>
                     <button class="nav-btn" onclick="showScreen('screen-welcome')" style="color: var(--accent-red);"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
@@ -238,13 +255,12 @@
                         <div class="value-side" id="uiGrade">الصف الدراسي</div>
                     </div>
                     
-                    <!-- زر حذف الحساب الجديد -->
                     <button class="btn-main" style="background: #fee2e2; color: var(--accent-red); border: 1px solid #fca5a5; margin-top: 15px;" onclick="deleteCurrentAccount()">
                         <i class="fa-solid fa-trash-can"></i> حذف هذا الحساب نهائياً
                     </button>
                 </div>
 
-                <!-- ب. المتابعة والدرجات (تصميم مرتب ومتوازن) -->
+                <!-- ب. المتابعة والدرجات -->
                 <div id="section-stats" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;">متابعة أداء الطالب والأنشطة</h4>
                     <div class="dashboard-grid">
@@ -272,43 +288,74 @@
                     </div>
                 </div>
 
-                <!-- ج. مكتبة الكتب والملزمة (PDF) -->
+                <!-- ج. مكتبة الكتب والملزمة (PDF) مع رسالة الخط الصغير عند الفراغ -->
                 <div id="section-books" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-book-pdf"></i> كتب وملزمة المادة (PDF)</h4>
                     
                     <div class="admin-upload-box" id="adminPdfUploadArea">
-                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;"><i class="fa-solid fa-circle-plus"></i> إضافة كتاب أو ملزمة جديدة:</h4>
-                        <div class="form-group" style="margin-bottom: 4px;">
-                            <input type="text" id="newPdfTitle" placeholder="عنوان الملزمة أو الكتاب" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 6px;">
-                            <input type="text" id="newPdfLink" placeholder="رابط ملف الـ PDF" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
-                        </div>
+                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;">إضافة كتاب أو ملزمة جديدة:</h4>
+                        <div class="form-group" style="margin-bottom: 4px;"><input type="text" id="newPdfTitle" placeholder="عنوان الملزمة" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></div>
+                        <div class="form-group" style="margin-bottom: 6px;"><input type="text" id="newPdfLink" placeholder="رابط الـ PDF" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></div>
                         <button class="btn-main" style="padding: 6px; font-size: 10px;" onclick="addNewPdfBook()">نشر الكتاب للطلاب</button>
                     </div>
 
                     <div id="pdfBooksContainer"></div>
                 </div>
 
-                <!-- د. الفيديوهات التعليمية (القسم الجديد) -->
+                <!-- د. الفيديوهات التعليمية مع رسالة الخط الصغير عند الفراغ -->
                 <div id="section-videos" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-video"></i> الفيديوهات والشروحات التعليمية</h4>
                     
                     <div class="admin-upload-box" id="adminVideoUploadArea">
-                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;"><i class="fa-solid fa-circle-plus"></i> إضافة فيديو تعليمي جديد:</h4>
-                        <div class="form-group" style="margin-bottom: 4px;">
-                            <input type="text" id="newVideoTitle" placeholder="عنوان الشرح أو الدرس" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 6px;">
-                            <input type="text" id="newVideoLink" placeholder="رابط الفيديو (يوتيوب أو رابط مباشر)" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
-                        </div>
+                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;">إضافة فيديو تعليمي جديد:</h4>
+                        <div class="form-group" style="margin-bottom: 4px;"><input type="text" id="newVideoTitle" placeholder="عنوان الدرس" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></div>
+                        <div class="form-group" style="margin-bottom: 6px;"><input type="text" id="newVideoLink" placeholder="رابط الفيديو" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></div>
                         <button class="btn-main" style="padding: 6px; font-size: 10px;" onclick="addNewEducationalVideo()">نشر الفيديو للطلاب</button>
                     </div>
 
                     <div id="videosContainer"></div>
                 </div>
 
-                <!-- هـ. مجتمع المادة (البوت باسم AI Assistant Bot) -->
+                <!-- هـ. قسم الإعلانات (الأدمن يكتب، والطلاب يتفاعلون 👍 ويردون) -->
+                <div id="section-ads" style="display: none;">
+                    <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-bullhorn"></i> لوحة الإعلانات الرسمية</h4>
+                    
+                    <div class="admin-upload-box" id="adminAdsUploadArea">
+                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;">كتابة إعلان جديد (للأدمن فقط):</h4>
+                        <div class="form-group" style="margin-bottom: 6px;"><textarea id="newAdText" rows="2" placeholder="اكتب نص الإعلان..." style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></textarea></div>
+                        <button class="btn-main" style="padding: 6px; font-size: 10px;" onclick="addNewAdPost()">نشر الإعلان للجميع</button>
+                    </div>
+
+                    <div id="adsContainer"></div>
+                </div>
+
+                <!-- و. مركز الدعم والتذاكر (مستوحى من DECI) -->
+                <div id="section-support" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue);"><i class="fa-solid fa-headset"></i> مركز الدعم والتذاكر</h4>
+                        <button class="btn-main" style="width: auto; padding: 4px 8px; font-size: 9px; margin: 0;" onclick="openNewTicketModal()"><i class="fa-solid fa-plus"></i> تذكرة جديدة</button>
+                    </div>
+                    <div id="supportTicketsContainer"></div>
+                </div>
+
+                <!-- ز. الأسئلة الشائعة FAQ Accordion -->
+                <div id="section-faq" style="display: none;">
+                    <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة</h4>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">كيف يمكنني الوصول إلى السنتر وحضور الحصص؟ <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer">يمكنك الحضور في الموعد المحدد لمجموعتك مع المعلم وإظهار بطاقة الحضور الإلكترونية الخاصة بك من صفحة الملف الشخصي.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">كيف أتتبع تقدمي ودرجات الاختبارات؟ <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer">عبر الانتقال إلى قسم "المتابعة" في الأعلى، حيث تظهر لك درجاتك وحالة الحضور والواجبات بدقة.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">كيف أحصل على المساعدة عند مواجهة مشكلة؟ <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-answer">يمكنك الانتقال لقسم "الدعم" وفتح تذكرة دعم جديدة وسيتم الرد عليك فوراً من قبل الإدارة.</div>
+                    </div>
+                </div>
+
+                <!-- ح. مجتمع المادة (البوت باسم AI Assistant Bot) -->
                 <div id="section-community" style="display: none;">
                     <div class="chat-box" id="communityChatBox"></div>
                     <div class="chat-input-area">
@@ -345,7 +392,17 @@
 
     </div>
 
-    <!-- نافذة المودال -->
+    <!-- نافذة تذكرة دعم جديدة -->
+    <div class="modal-overlay" id="ticketModal" onclick="closeTicketModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <h3 style="font-size: 13px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;">إنشاء تذكرة دعم جديدة</h3>
+            <div class="form-group" style="margin-bottom: 6px;"><input type="text" id="ticketTitle" placeholder="عنوان المشكلة أو الاستفسار" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></div>
+            <div class="form-group" style="margin-bottom: 8px;"><textarea id="ticketDesc" rows="3" placeholder="اشرح مشكلتك بالتفصيل..." style="color: #1e293b; background: white; border: 1px solid #cbd5e1;"></textarea></div>
+            <button class="btn-main" onclick="submitNewTicket()">إرسال التذكرة</button>
+        </div>
+    </div>
+
+    <!-- نافذة المودال للمتابعة -->
     <div class="modal-overlay" id="customModal" onclick="closeModal(event)">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 id="modalTitle" style="font-size: 13px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;">تفاصيل النشاط</h3>
@@ -372,7 +429,7 @@
     <div class="modal-overlay" id="teacherLoginModal" onclick="closeTeacherModal(event)">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 style="font-size: 13px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-chalkboard-user"></i> دخول المعلم / الأدمن</h3>
-            <p style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">اختر المعلم للدخول لصلاحيات التعديل وإدارة المحتوى</p>
+            <p style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">اختر المعلم للدخول لصلاحيات التعديل ونشر الإعلانات</p>
             <div class="form-group" style="margin-bottom: 8px;">
                 <select id="teacherSelectLogin" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
                     <option value="مستر جلال الأتربي (دراسات اجتماعية)">مستر جلال الأتربي (دراسات اجتماعية)</option>
@@ -397,15 +454,12 @@
         let loggedInTeacher = "";
         let currentStudentIndex = 0;
         let activeModalType = "";
-        let savedAccounts = JSON.parse(localStorage.getItem('mozakra_pro_students_v6')) || [];
+        let savedAccounts = JSON.parse(localStorage.getItem('mozakra_pro_students_v7')) || [];
         
-        let pdfBooksList = JSON.parse(localStorage.getItem('mozakra_pdf_books_v2')) || [
-            { title: "ملخص وحدة جغرافيا مصر (PDF)", link: "#" }
-        ];
-
-        let videosList = JSON.parse(localStorage.getItem('mozakra_videos_v1')) || [
-            { title: "شرح الدرس الأول: التضاريس والبيئة", link: "#" }
-        ];
+        let pdfBooksList = JSON.parse(localStorage.getItem('mozakra_pdf_books_v3')) || [];
+        let videosList = JSON.parse(localStorage.getItem('mozakra_videos_v2')) || [];
+        let adsList = JSON.parse(localStorage.getItem('mozakra_ads_v1')) || [];
+        let ticketsList = JSON.parse(localStorage.getItem('mozakra_tickets_v1')) || [];
 
         function updateGroupsDropdown() {
             let teacherSelect = document.getElementById('regTeacherSelect');
@@ -495,14 +549,14 @@
                 score: "لم تُسجل"
             };
             savedAccounts.push(newAcc);
-            localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
+            localStorage.setItem('mozakra_pro_students_v7', JSON.stringify(savedAccounts));
             loginStudent(savedAccounts.length - 1);
         }
 
         function deleteCurrentAccount() {
             if(confirm("هل أنت متأكد من رغبتك في حذف هذا الحساب نهائياً من المنصة؟")) {
                 savedAccounts.splice(currentStudentIndex, 1);
-                localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
+                localStorage.setItem('mozakra_pro_students_v7', JSON.stringify(savedAccounts));
                 alert("تم حذف الحساب بنجاح.");
                 showScreen('screen-welcome');
             }
@@ -533,21 +587,26 @@
             let badgeBtn = document.getElementById('teacherBadgeBtn');
             let adminPdfUploadArea = document.getElementById('adminPdfUploadArea');
             let adminVideoUploadArea = document.getElementById('adminVideoUploadArea');
+            let adminAdsUploadArea = document.getElementById('adminAdsUploadArea');
             
             if(isTeacherMode) {
                 badgeBtn.style.display = 'inline-block';
                 badgeBtn.innerText = "أدمن: " + acc.teacher.split(' ')[1];
-                adminPdfUploadArea.classList.add('active');
-                adminVideoUploadArea.classList.add('active');
+                if(adminPdfUploadArea) adminPdfUploadArea.classList.add('active');
+                if(adminVideoUploadArea) adminVideoUploadArea.classList.add('active');
+                if(adminAdsUploadArea) adminAdsUploadArea.classList.add('active');
             } else {
                 badgeBtn.style.display = 'none';
-                adminPdfUploadArea.classList.remove('active');
-                adminVideoUploadArea.classList.remove('active');
+                if(adminPdfUploadArea) adminPdfUploadArea.classList.remove('active');
+                if(adminVideoUploadArea) adminVideoUploadArea.classList.remove('active');
+                if(adminAdsUploadArea) adminAdsUploadArea.classList.remove('active');
             }
 
             loadCommunityChat();
             renderPdfBooks();
             renderVideos();
+            renderAds();
+            renderSupportTickets();
             showScreen('screen-dashboard');
             switchSection('profile');
         }
@@ -560,17 +619,20 @@
             document.getElementById('section-stats').style.display = (sectionName === 'stats') ? 'block' : 'none';
             document.getElementById('section-books').style.display = (sectionName === 'books') ? 'block' : 'none';
             document.getElementById('section-videos').style.display = (sectionName === 'videos') ? 'block' : 'none';
+            document.getElementById('section-ads').style.display = (sectionName === 'ads') ? 'block' : 'none';
+            document.getElementById('section-support').style.display = (sectionName === 'support') ? 'block' : 'none';
+            document.getElementById('section-faq').style.display = (sectionName === 'faq') ? 'block' : 'none';
             document.getElementById('section-community').style.display = (sectionName === 'community') ? 'block' : 'none';
         }
 
-        // إدارة الكتب
+        // إدارة الكتب (مع رسالة الخط الصغير)
         function renderPdfBooks() {
             let container = document.getElementById('pdfBooksContainer');
             if(!container) return;
             container.innerHTML = '';
             
             if(pdfBooksList.length === 0) {
-                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 15px;">لا توجد كتب مضافة حالياً.</p>';
+                container.innerHTML = '<div class="empty-notice">لا يوجد ملف / كتاب منزل في الوقت الحالي</div>';
                 return;
             }
 
@@ -581,7 +643,7 @@
                             <div class="media-icon"><i class="fa-solid fa-file-pdf"></i></div>
                             <div>
                                 <h5 style="font-size: 11px; font-weight: bold; color: var(--text-main);">${book.title}</h5>
-                                <span style="font-size: 9px; color: var(--text-muted);">ملف تعليمي معتمد</span>
+                                <span style="font-size: 9px; color: var(--text-muted);">ملف تعليمي</span>
                             </div>
                         </div>
                         <a href="${book.link}" target="_blank" class="media-btn"><i class="fa-solid fa-download"></i> تحميل PDF</a>
@@ -593,26 +655,23 @@
         function addNewPdfBook() {
             let title = document.getElementById('newPdfTitle').value.trim();
             let link = document.getElementById('newPdfLink').value.trim();
-
             if(!title || !link) { alert("يرجى إدخال عنوان الكتاب ورابط الـ PDF!"); return; }
-
             pdfBooksList.push({ title: title, link: link });
-            localStorage.setItem('mozakra_pdf_books_v2', JSON.stringify(pdfBooksList));
-            
+            localStorage.setItem('mozakra_pdf_books_v3', JSON.stringify(pdfBooksList));
             document.getElementById('newPdfTitle').value = '';
             document.getElementById('newPdfLink').value = '';
             renderPdfBooks();
             alert("تم نشر كتاب الـ PDF بنجاح!");
         }
 
-        // إدارة الفيديوهات التعليمية
+        // إدارة الفيديوهات (مع رسالة الخط الصغير)
         function renderVideos() {
             let container = document.getElementById('videosContainer');
             if(!container) return;
             container.innerHTML = '';
             
             if(videosList.length === 0) {
-                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 15px;">لا توجد فيديوهات مضافة حالياً.</p>';
+                container.innerHTML = '<div class="empty-notice">لا يوجد فيديو منزل في الوقت الحالي</div>';
                 return;
             }
 
@@ -623,7 +682,7 @@
                             <div class="media-icon video"><i class="fa-solid fa-play"></i></div>
                             <div>
                                 <h5 style="font-size: 11px; font-weight: bold; color: var(--text-main);">${vid.title}</h5>
-                                <span style="font-size: 9px; color: var(--text-muted);">شرح فيديو مرئي</span>
+                                <span style="font-size: 9px; color: var(--text-muted);">شرح مرئي</span>
                             </div>
                         </div>
                         <a href="${vid.link}" target="_blank" class="media-btn"><i class="fa-solid fa-tv"></i> مشاهدة</a>
@@ -635,16 +694,161 @@
         function addNewEducationalVideo() {
             let title = document.getElementById('newVideoTitle').value.trim();
             let link = document.getElementById('newVideoLink').value.trim();
-
             if(!title || !link) { alert("يرجى إدخال عنوان ورابط الفيديو!"); return; }
-
             videosList.push({ title: title, link: link });
-            localStorage.setItem('mozakra_videos_v1', JSON.stringify(videosList));
-            
+            localStorage.setItem('mozakra_videos_v2', JSON.stringify(videosList));
             document.getElementById('newVideoTitle').value = '';
             document.getElementById('newVideoLink').value = '';
             renderVideos();
             alert("تم نشر الفيديو التعليمي بنجاح!");
+        }
+
+        // إدارة الإعلانات (الأدمن ينشر، والطلاب يتفاعلون 👍 ويردون)
+        function renderAds() {
+            let container = document.getElementById('adsContainer');
+            if(!container) return;
+            container.innerHTML = '';
+
+            if(adsList.length === 0) {
+                container.innerHTML = '<div class="empty-notice">لا توجد إعلانات منشورة في الوقت الحالي</div>';
+                return;
+            }
+
+            adsList.forEach((ad, index) => {
+                let commentsHtml = '';
+                if(ad.comments && ad.comments.length > 0) {
+                    ad.comments.forEach(c => {
+                        commentsHtml += `<div class="comment-item"><b>${c.sender}:</b> ${c.text}</div>`;
+                    });
+                }
+
+                container.innerHTML += `
+                    <div class="post-card">
+                        <div class="post-header">
+                            <span><i class="fa-solid fa-bullhorn"></i> إعلان رسمي</span>
+                            <span style="font-size: 8px; color: var(--text-muted);">${ad.date}</span>
+                        </div>
+                        <div class="post-body">${ad.text}</div>
+                        <div class="post-actions">
+                            <button onclick="likeAd(${index})"><i class="fa-solid fa-thumbs-up" style="color: var(--secondary-blue);"></i> أعجبني (${ad.likes || 0})</button>
+                        </div>
+                        <div class="comments-section">
+                            ${commentsHtml}
+                            <div style="display: flex; gap: 4px; margin-top: 4px;">
+                                <input type="text" id="adCommentInput_${index}" placeholder="اكتب رداً..." style="flex:1; padding:5px; border-radius:5px; border:1px solid #cbd5e1; font-size:10px; background:white; color:#1e293b; outline:none;">
+                                <button onclick="sendAdComment(${index})" style="background:var(--secondary-blue); color:white; border:none; padding:4px 8px; border-radius:5px; font-size:10px; cursor:pointer;">رد</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function addNewAdPost() {
+            let text = document.getElementById('newAdText').value.trim();
+            if(!text) { alert("يرجى كتابة نص الإعلان!"); return; }
+            let newAd = {
+                text: text,
+                likes: 0,
+                comments: [],
+                date: new Date().toLocaleDateString('ar-EG')
+            };
+            adsList.push(newAd);
+            localStorage.setItem('mozakra_ads_v1', JSON.stringify(adsList));
+            document.getElementById('newAdText').value = '';
+            renderAds();
+            alert("تم نشر الإعلان بنجاح!");
+        }
+
+        function likeAd(index) {
+            adsList[index].likes = (adsList[index].likes || 0) + 1;
+            localStorage.setItem('mozakra_ads_v1', JSON.stringify(adsList));
+            renderAds();
+        }
+
+        function sendAdComment(index) {
+            let input = document.getElementById(`adCommentInput_${index}`);
+            let text = input.value.trim();
+            if(!text) return;
+            let acc = savedAccounts[currentStudentIndex];
+            if(!adsList[index].comments) adsList[index].comments = [];
+            adsList[index].comments.push({ sender: acc.name, text: text });
+            localStorage.setItem('mozakra_ads_v1', JSON.stringify(adsList));
+            input.value = '';
+            renderAds();
+        }
+
+        // مركز الدعم والتذاكر (مستوحى من DECI)
+        function renderSupportTickets() {
+            let container = document.getElementById('supportTicketsContainer');
+            if(!container) return;
+            container.innerHTML = '';
+
+            let acc = savedAccounts[currentStudentIndex];
+            let myTickets = ticketsList.filter(t => isTeacherMode || t.studentName === acc.name);
+
+            if(myTickets.length === 0) {
+                container.innerHTML = '<div class="empty-notice">لا توجد تذاكر دعم حتى الآن</div>';
+                return;
+            }
+
+            myTickets.forEach((ticket, idx) => {
+                container.innerHTML += `
+                    <div class="post-card" style="border-right: 3px solid var(--secondary-blue);">
+                        <div class="post-header">
+                            <span>${ticket.title}</span>
+                            <span style="font-size: 8px; color: var(--accent-green);">${ticket.status}</span>
+                        </div>
+                        <div class="post-body" style="font-size: 10px;"><b>الطالب:</b> ${ticket.studentName}<br>${ticket.desc}</div>
+                        <div style="font-size: 9px; color: var(--text-muted); background:#f1f5f9; padding:5px; border-radius:5px;">رد الإدارة: ${ticket.reply || "قيد المراجعة من الأدمن..."}</div>
+                        ${isTeacherMode ? `
+                            <div style="margin-top:5px; display:flex; gap:4px;">
+                                <input type="text" id="ticketReplyInput_${idx}" placeholder="اكتب رد الأدمن..." style="flex:1; padding:4px; font-size:10px; border:1px solid #cbd5e1; border-radius:5px; background:white; color:#1e293b;">
+                                <button onclick="replyTicket(${idx})" style="background:var(--secondary-blue); color:white; border:none; padding:4px 8px; border-radius:5px; font-size:10px; cursor:pointer;">إرسال الرد</button>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        function openNewTicketModal() { document.getElementById('ticketModal').style.display = 'flex'; }
+        function closeTicketModal(e) { if(e.target.id === 'ticketModal') document.getElementById('ticketModal').style.display = 'none'; }
+
+        function submitNewTicket() {
+            let title = document.getElementById('ticketTitle').value.trim();
+            let desc = document.getElementById('ticketDesc').value.trim();
+            if(!title || !desc) { alert("يرجى ملء عنوان ووصف التذكرة!"); return; }
+            let acc = savedAccounts[currentStudentIndex];
+            ticketsList.push({
+                studentName: acc.name,
+                title: title,
+                desc: desc,
+                status: "مفتوحة",
+                reply: "لم يتم الرد بعد"
+            });
+            localStorage.setItem('mozakra_tickets_v1', JSON.stringify(ticketsList));
+            document.getElementById('ticketTitle').value = '';
+            document.getElementById('ticketDesc').value = '';
+            document.getElementById('ticketModal').style.display = 'none';
+            renderSupportTickets();
+            alert("تم إرسال تذكرة الدعم بنجاح!");
+        }
+
+        function replyTicket(idx) {
+            let input = document.getElementById(`ticketReplyInput_${idx}`);
+            let text = input.value.trim();
+            if(!text) return;
+            ticketsList[idx].reply = text;
+            ticketsList[idx].status = "تم الحل";
+            localStorage.setItem('mozakra_tickets_v1', JSON.stringify(ticketsList));
+            renderSupportTickets();
+        }
+
+        // الأسئلة الشائعة Accordion Toggle
+        function toggleFaq(el) {
+            let item = el.parentElement;
+            item.classList.toggle('active');
         }
 
         function openModal(type) {
@@ -677,23 +881,21 @@
         function saveAdminChanges() {
             let action = document.getElementById('adminActionSelect').value;
             let acc = savedAccounts[currentStudentIndex];
-            
             if(action === 'attend') { acc.attendance = "حاضر في السنتر"; }
             else if(action === 'absent') { acc.attendance = "غائب"; }
             else if(action === 'score_full') { acc.score = "امتياز (كاملة)"; }
             else if(action === 'hw_done') { acc.homework = "تم التسليم والمراجعة"; }
 
             savedAccounts[currentStudentIndex] = acc;
-            localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
+            localStorage.setItem('mozakra_pro_students_v7', JSON.stringify(savedAccounts));
             loginStudent(currentStudentIndex);
             document.getElementById('customModal').style.display = 'none';
             alert("تم تحديث البيانات بنجاح!");
         }
 
-        // الدردشة (البوت باسم AI Assistant Bot)
-        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v6')) || [
-            { sender: "AI Assistant Bot", text: "أهلاً بك في مجتمع المنصة! يمكنك طرح استفساراتك هنا وسيقوم الجميع بالرد عليك.", mine: false },
-            { sender: "محمد عنتر", text: "مرحباً بالجميع، تم الانتهاء من مراجعة المهام.", mine: true }
+        // الدردشة (البوت باسم AI Assistant Bot حصرياً)
+        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v7')) || [
+            { sender: "AI Assistant Bot", text: "أهلاً بك في مجتمع المنصة! يمكنك طرح استفساراتك هنا.", mine: false }
         ];
 
         function loadCommunityChat() {
@@ -718,14 +920,14 @@
             let acc = savedAccounts[currentStudentIndex];
             
             communityMessages.push({ sender: acc.name, text: text, mine: true });
-            localStorage.setItem('mozakra_chat_v6', JSON.stringify(communityMessages));
+            localStorage.setItem('mozakra_chat_v7', JSON.stringify(communityMessages));
             input.value = '';
             loadCommunityChat();
         }
 
         function checkEnterChat(e) { if(e.key === 'Enter') sendChatMessage(); }
 
-        // كويز 3 إعدادي
+        // كويز 3 إعدادي (الـ 50 سؤال جاهزة في البنية)
         const quizData = [
             { question: "تعد قارة أمريكا الشمالية أكبر قارات العالم الجديد من حيث المساحة.", a: "صح", b: "خطأ", correct: "a" },
             { question: "يصب نهر الأمازون في المحيط الهادي.", a: "صح", b: "خطأ", correct: "b" },
