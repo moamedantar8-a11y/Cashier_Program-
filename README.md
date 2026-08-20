@@ -64,7 +64,6 @@
             display: flex;
         }
 
-        /* --- الأنماط العامة للمنصة --- */
         .welcome-screen { background: var(--light-bg); padding: 20px; text-align: center; }
         .welcome-logo { font-size: 50px; color: var(--secondary-blue); margin-bottom: 5px; margin-top: 15px; }
         .accounts-list { width: 100%; margin: 10px 0; max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
@@ -81,10 +80,10 @@
         .btn-main:hover { background: #2563eb; }
         .btn-secondary { background: transparent; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.2); }
         
-        .top-navbar { background: white; padding: 8px 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 10; }
-        .nav-brand { display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 900; color: var(--primary-blue); }
-        .nav-links { display: flex; gap: 2px; }
-        .nav-btn { background: #f1f5f9; border: none; padding: 5px 5px; border-radius: 5px; font-size: 8px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .top-navbar { background: white; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 10; }
+        .nav-brand { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 900; color: var(--primary-blue); }
+        .nav-links { display: flex; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-btn { background: #f1f5f9; border: none; padding: 4px 6px; border-radius: 5px; font-size: 8px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
         .nav-btn.active, .nav-btn:hover { background: var(--secondary-blue); color: white; }
         
         .dashboard-content { padding: 12px; }
@@ -97,14 +96,15 @@
         .digital-id-card { background: white; border-radius: 10px; padding: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
         .qr-box { width: 42px; height: 42px; background: #eff6ff; color: var(--secondary-blue); display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 18px; }
         
+        /* تنسيق شبكة المتابعة لتكون متناسقة ومنظمة تماماً */
         .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-        .dash-card { background: white; padding: 9px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; cursor: pointer; transition: var(--transition); min-height: 80px; }
+        .dash-card { background: white; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; cursor: pointer; transition: var(--transition); min-height: 90px; }
         .dash-card:hover { border-color: var(--secondary-blue); transform: translateY(-2px); }
-        .dash-card-icon { width: 26px; height: 26px; background: #eff6ff; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-bottom: 4px; }
+        .dash-card-icon { width: 28px; height: 28px; background: #eff6ff; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-bottom: 6px; }
         .dash-card-title { font-size: 10px; font-weight: 700; color: var(--text-main); }
         .dash-card-value { font-size: 10px; color: var(--text-muted); font-weight: bold; margin-top: 2px; }
         
-        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .chat-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
         .chat-bubble { background: #f1f5f9; padding: 8px 10px; border-radius: 8px; font-size: 11px; max-width: 85%; align-self: flex-start; border-right: 3px solid var(--secondary-blue); }
         .chat-bubble.mine { background: #eff6ff; align-self: flex-end; border-right: none; border-left: 3px solid var(--accent-green); }
         .chat-sender { font-size: 9px; font-weight: bold; color: var(--primary-blue); margin-bottom: 2px; display: flex; justify-content: space-between; }
@@ -112,16 +112,17 @@
         .chat-input-area input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 11px; outline: none; }
         .chat-input-area button { background: var(--secondary-blue); color: white; border: none; padding: 0 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
         
-        /* تصميم قسم الكتب ومكتبة الـ PDF */
-        .pdf-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; transition: var(--transition); }
-        .pdf-card:hover { border-color: var(--secondary-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .pdf-info { display: flex; align-items: center; gap: 10px; }
-        .pdf-icon { width: 35px; height: 35px; background: #fee2e2; color: var(--accent-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-        .pdf-download-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: var(--transition); }
-        .pdf-download-btn:hover { background: var(--secondary-blue); color: white; }
+        /* تصميم الكتب والفيديوهات */
+        .media-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; transition: var(--transition); }
+        .media-card:hover { border-color: var(--secondary-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .media-info { display: flex; align-items: center; gap: 10px; }
+        .media-icon { width: 35px; height: 35px; background: #fee2e2; color: var(--accent-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .media-icon.video { background: #dbeafe; color: var(--secondary-blue); }
+        .media-btn { background: #eff6ff; color: var(--secondary-blue); border: 1px solid #bfdbfe; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: var(--transition); }
+        .media-btn:hover { background: var(--secondary-blue); color: white; }
 
-        .admin-pdf-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 12px; display: none; }
-        .admin-pdf-upload-box.active { display: block; }
+        .admin-upload-box { background: #eff6ff; border: 1px dashed var(--secondary-blue); padding: 10px; border-radius: 10px; margin-bottom: 12px; display: none; }
+        .admin-upload-box.active { display: block; }
 
         .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 100; padding: 15px; }
         .modal-card { background: white; width: 100%; max-width: 320px; border-radius: 12px; padding: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); text-align: right; max-height: 80vh; overflow-y: auto; }
@@ -129,7 +130,6 @@
         .admin-controls.active { display: block; }
         .app-footer { text-align: center; padding: 6px; font-size: 9px; color: var(--text-muted); background: white; border-top: 1px solid #f1f5f9; margin-top: auto; }
 
-        /* --- أنماط شاشة الاختبار (Quiz Screen) --- */
         .quiz-container-ui { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 10px; }
         .quiz-container-ui ul { list-style: none; padding: 0; margin: 0; }
         .quiz-container-ui ul li { margin: 8px 0; }
@@ -143,7 +143,7 @@
 
     <div class="phone-frame">
         
-        <!-- 1. شاشة الترحيب الرئيسية -->
+        <!-- 1. شاشة الترحيب -->
         <div id="screen-welcome" class="screen welcome-screen active">
             <div class="welcome-logo"><i class="fa-solid fa-graduation-cap"></i></div>
             <h2 style="font-size: 18px; font-weight: 900; margin-bottom: 2px;">Mozakra | مذاكرة</h2>
@@ -193,7 +193,7 @@
             <button class="btn-main btn-secondary" onclick="showScreen('screen-welcome')">رجوع</button>
         </div>
 
-        <!-- 3. لوحة تحكم الطالب / المعلم -->
+        <!-- 3. لوحة تحكم المنصة -->
         <div id="screen-dashboard" class="screen">
             <div class="top-navbar">
                 <div class="nav-brand"><i class="fa-solid fa-landmark"></i><span>Mozakra</span></div>
@@ -201,6 +201,7 @@
                     <button class="nav-btn active" onclick="switchSection('profile')">الملف</button>
                     <button class="nav-btn" onclick="switchSection('stats')">المتابعة</button>
                     <button class="nav-btn" onclick="switchSection('books')">الكتب</button>
+                    <button class="nav-btn" onclick="switchSection('videos')">الفيديوهات</button>
                     <button class="nav-btn" onclick="switchSection('community')">المجتمع</button>
                     <button class="nav-btn" id="teacherBadgeBtn" style="background: #fef08a; color: #854d0e; display: none;"><i class="fa-solid fa-chalkboard"></i> أدمن</button>
                     <button class="nav-btn" onclick="showScreen('screen-welcome')" style="color: var(--accent-red);"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
@@ -208,7 +209,7 @@
             </div>
 
             <div class="dashboard-content">
-                <!-- أ. الملف الشخصي -->
+                <!-- أ. الملف الشخصي مع زر حذف الحساب -->
                 <div id="section-profile">
                     <div class="profile-header-card">
                         <div>
@@ -236,14 +237,17 @@
                         <div class="label-side"><i class="fa-solid fa-book-open"></i><span>الصف الدراسي</span></div>
                         <div class="value-side" id="uiGrade">الصف الدراسي</div>
                     </div>
+                    
+                    <!-- زر حذف الحساب الجديد -->
+                    <button class="btn-main" style="background: #fee2e2; color: var(--accent-red); border: 1px solid #fca5a5; margin-top: 15px;" onclick="deleteCurrentAccount()">
+                        <i class="fa-solid fa-trash-can"></i> حذف هذا الحساب نهائياً
+                    </button>
                 </div>
 
-                <!-- ب. المتابعة والدرجات -->
+                <!-- ب. المتابعة والدرجات (تصميم مرتب ومتوازن) -->
                 <div id="section-stats" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;">متابعة أداء الطالب والأنشطة</h4>
                     <div class="dashboard-grid">
-                        
-                        <!-- زر مركز التحدي (يظهر فقط لـ 3 إعدادي) -->
                         <div class="dash-card" id="challengeCardBtn" style="background: #eff6ff; border-color: var(--secondary-blue);" onclick="openChallengeGame()">
                             <div class="dash-card-icon" style="background: var(--secondary-blue); color: white;"><i class="fa-solid fa-gamepad"></i></div>
                             <div class="dash-card-title" style="color: var(--primary-blue);">مركز التحدي</div>
@@ -272,23 +276,39 @@
                 <div id="section-books" style="display: none;">
                     <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-book-pdf"></i> كتب وملزمة المادة (PDF)</h4>
                     
-                    <!-- لوحة رفع كتاب جديد (تظهر للأدمن فقط) -->
-                    <div class="admin-pdf-upload-box" id="adminPdfUploadArea">
+                    <div class="admin-upload-box" id="adminPdfUploadArea">
                         <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;"><i class="fa-solid fa-circle-plus"></i> إضافة كتاب أو ملزمة جديدة:</h4>
                         <div class="form-group" style="margin-bottom: 4px;">
-                            <input type="text" id="newPdfTitle" placeholder="عنوان الملزمة أو الكتاب (مثال: ملزمة الشرح الوحدة الأولى)" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
+                            <input type="text" id="newPdfTitle" placeholder="عنوان الملزمة أو الكتاب" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
                         </div>
                         <div class="form-group" style="margin-bottom: 6px;">
-                            <input type="text" id="newPdfLink" placeholder="رابط ملف الـ PDF (رابط مباشر أو Google Drive)" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
+                            <input type="text" id="newPdfLink" placeholder="رابط ملف الـ PDF" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
                         </div>
                         <button class="btn-main" style="padding: 6px; font-size: 10px;" onclick="addNewPdfBook()">نشر الكتاب للطلاب</button>
                     </div>
 
-                    <!-- قائمة الكتب -->
                     <div id="pdfBooksContainer"></div>
                 </div>
 
-                <!-- د. مجتمع المادة -->
+                <!-- د. الفيديوهات التعليمية (القسم الجديد) -->
+                <div id="section-videos" style="display: none;">
+                    <h4 style="font-size: 11px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-video"></i> الفيديوهات والشروحات التعليمية</h4>
+                    
+                    <div class="admin-upload-box" id="adminVideoUploadArea">
+                        <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;"><i class="fa-solid fa-circle-plus"></i> إضافة فيديو تعليمي جديد:</h4>
+                        <div class="form-group" style="margin-bottom: 4px;">
+                            <input type="text" id="newVideoTitle" placeholder="عنوان الشرح أو الدرس" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 6px;">
+                            <input type="text" id="newVideoLink" placeholder="رابط الفيديو (يوتيوب أو رابط مباشر)" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
+                        </div>
+                        <button class="btn-main" style="padding: 6px; font-size: 10px;" onclick="addNewEducationalVideo()">نشر الفيديو للطلاب</button>
+                    </div>
+
+                    <div id="videosContainer"></div>
+                </div>
+
+                <!-- هـ. مجتمع المادة (البوت باسم AI Assistant Bot) -->
                 <div id="section-community" style="display: none;">
                     <div class="chat-box" id="communityChatBox"></div>
                     <div class="chat-input-area">
@@ -301,7 +321,7 @@
             <div class="app-footer">Developed by <span>MK CREATIVE Agency</span></div>
         </div>
 
-        <!-- 4. شاشة الاختبار المدمجة (Quiz Screen) -->
+        <!-- 4. شاشة الاختبار -->
         <div id="screen-quiz" class="screen" style="background: var(--light-bg); padding: 12px;">
             <div class="top-navbar" style="border-radius: 10px; margin-bottom: 10px;">
                 <div class="nav-brand"><i class="fa-solid fa-gamepad"></i> تحدي 3 إعدادي (50 سؤال)</div>
@@ -325,14 +345,14 @@
 
     </div>
 
-    <!-- نافذة المودال التفصيلية -->
+    <!-- نافذة المودال -->
     <div class="modal-overlay" id="customModal" onclick="closeModal(event)">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 id="modalTitle" style="font-size: 13px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;">تفاصيل النشاط</h3>
             <p id="modalBodyText" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5;"></p>
             
             <div class="admin-controls" id="adminControlsArea">
-                <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;">لوحة تحكم المعلم (تحديث البيانات):</h4>
+                <h4 style="font-size: 10px; font-weight: bold; color: var(--primary-blue); margin-bottom: 4px;">لوحة تحكم المعلم:</h4>
                 <div class="form-group" style="margin-bottom: 6px;">
                     <select id="adminActionSelect" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
                         <option value="attend">تأكيد الحضور (حاضر)</option>
@@ -352,7 +372,7 @@
     <div class="modal-overlay" id="teacherLoginModal" onclick="closeTeacherModal(event)">
         <div class="modal-card" onclick="event.stopPropagation()">
             <h3 style="font-size: 13px; font-weight: 900; color: var(--primary-blue); margin-bottom: 8px;"><i class="fa-solid fa-chalkboard-user"></i> دخول المعلم / الأدمن</h3>
-            <p style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">اختر المعلم للدخول لصلاحيات التعديل ومتابعة الطلاب</p>
+            <p style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">اختر المعلم للدخول لصلاحيات التعديل وإدارة المحتوى</p>
             <div class="form-group" style="margin-bottom: 8px;">
                 <select id="teacherSelectLogin" style="color: #1e293b; background: white; border: 1px solid #cbd5e1;">
                     <option value="مستر جلال الأتربي (دراسات اجتماعية)">مستر جلال الأتربي (دراسات اجتماعية)</option>
@@ -377,12 +397,14 @@
         let loggedInTeacher = "";
         let currentStudentIndex = 0;
         let activeModalType = "";
-        let savedAccounts = JSON.parse(localStorage.getItem('mozakra_pro_students_v5')) || [];
+        let savedAccounts = JSON.parse(localStorage.getItem('mozakra_pro_students_v6')) || [];
         
-        // مصفوفة تخزين الكتب والـ PDF
-        let pdfBooksList = JSON.parse(localStorage.getItem('mozakra_pdf_books_v1')) || [
-            { title: "ملخص وحدة جغرافيا مصر (PDF)", link: "#" },
-            { title: "الامتحانات التراكمية والتدريبات الشاملة", link: "#" }
+        let pdfBooksList = JSON.parse(localStorage.getItem('mozakra_pdf_books_v2')) || [
+            { title: "ملخص وحدة جغرافيا مصر (PDF)", link: "#" }
+        ];
+
+        let videosList = JSON.parse(localStorage.getItem('mozakra_videos_v1')) || [
+            { title: "شرح الدرس الأول: التضاريس والبيئة", link: "#" }
         ];
 
         function updateGroupsDropdown() {
@@ -450,7 +472,7 @@
                 if(savedAccounts.length > 0) {
                     loginStudent(0);
                 } else {
-                    alert("لا توجد حسابات مسجلة لهذا المعلم بعد، يجدر بأحد الطلاب التسجيل أولاً.");
+                    alert("لا توجد حسابات مسجلة لهذا المعلم بعد، يرجى تسجيل حساب أولاً.");
                     showScreen('screen-register');
                 }
             }
@@ -473,8 +495,17 @@
                 score: "لم تُسجل"
             };
             savedAccounts.push(newAcc);
-            localStorage.setItem('mozakra_pro_students_v5', JSON.stringify(savedAccounts));
+            localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
             loginStudent(savedAccounts.length - 1);
+        }
+
+        function deleteCurrentAccount() {
+            if(confirm("هل أنت متأكد من رغبتك في حذف هذا الحساب نهائياً من المنصة؟")) {
+                savedAccounts.splice(currentStudentIndex, 1);
+                localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
+                alert("تم حذف الحساب بنجاح.");
+                showScreen('screen-welcome');
+            }
         }
 
         function loginStudent(index) {
@@ -492,7 +523,6 @@
             document.getElementById('scoreStatus').innerText = acc.score;
             document.getElementById('hwStatus').innerText = acc.homework;
 
-            // التحكم في إظهار مركز التحدي فقط لطلاب الصف الثالث الإعدادي
             let challengeBtn = document.getElementById('challengeCardBtn');
             if(acc.grade === "الصف الثالث الإعدادي") {
                 challengeBtn.style.display = 'flex';
@@ -502,18 +532,22 @@
 
             let badgeBtn = document.getElementById('teacherBadgeBtn');
             let adminPdfUploadArea = document.getElementById('adminPdfUploadArea');
+            let adminVideoUploadArea = document.getElementById('adminVideoUploadArea');
             
             if(isTeacherMode) {
                 badgeBtn.style.display = 'inline-block';
                 badgeBtn.innerText = "أدمن: " + acc.teacher.split(' ')[1];
-                adminPdfUploadArea.classList.add('active'); // إظهار لوحة رفع الكتب للأدمن
+                adminPdfUploadArea.classList.add('active');
+                adminVideoUploadArea.classList.add('active');
             } else {
                 badgeBtn.style.display = 'none';
-                adminPdfUploadArea.classList.remove('active'); // إخفاء لوحة رفع الكتب عن الطالب العادي
+                adminPdfUploadArea.classList.remove('active');
+                adminVideoUploadArea.classList.remove('active');
             }
 
             loadCommunityChat();
             renderPdfBooks();
+            renderVideos();
             showScreen('screen-dashboard');
             switchSection('profile');
         }
@@ -525,31 +559,32 @@
             document.getElementById('section-profile').style.display = (sectionName === 'profile') ? 'block' : 'none';
             document.getElementById('section-stats').style.display = (sectionName === 'stats') ? 'block' : 'none';
             document.getElementById('section-books').style.display = (sectionName === 'books') ? 'block' : 'none';
+            document.getElementById('section-videos').style.display = (sectionName === 'videos') ? 'block' : 'none';
             document.getElementById('section-community').style.display = (sectionName === 'community') ? 'block' : 'none';
         }
 
-        // --- وظائف إدارة كتب ومذكرات الـ PDF ---
+        // إدارة الكتب
         function renderPdfBooks() {
             let container = document.getElementById('pdfBooksContainer');
             if(!container) return;
             container.innerHTML = '';
             
             if(pdfBooksList.length === 0) {
-                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 15px;">لا توجد كتب أو مذكرات مضافة حالياً.</p>';
+                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 15px;">لا توجد كتب مضافة حالياً.</p>';
                 return;
             }
 
-            pdfBooksList.forEach((book, idx) => {
+            pdfBooksList.forEach((book) => {
                 container.innerHTML += `
-                    <div class="pdf-card">
-                        <div class="pdf-info">
-                            <div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div class="media-card">
+                        <div class="media-info">
+                            <div class="media-icon"><i class="fa-solid fa-file-pdf"></i></div>
                             <div>
                                 <h5 style="font-size: 11px; font-weight: bold; color: var(--text-main);">${book.title}</h5>
                                 <span style="font-size: 9px; color: var(--text-muted);">ملف تعليمي معتمد</span>
                             </div>
                         </div>
-                        <a href="${book.link}" target="_blank" class="pdf-download-btn"><i class="fa-solid fa-download"></i> تحميل PDF</a>
+                        <a href="${book.link}" target="_blank" class="media-btn"><i class="fa-solid fa-download"></i> تحميل PDF</a>
                     </div>
                 `;
             });
@@ -559,19 +594,57 @@
             let title = document.getElementById('newPdfTitle').value.trim();
             let link = document.getElementById('newPdfLink').value.trim();
 
-            if(!title || !link) {
-                alert("يرجى إدخال عنوان الكتاب ورابط الـ PDF بشكل صحيح!");
-                return;
-            }
+            if(!title || !link) { alert("يرجى إدخال عنوان الكتاب ورابط الـ PDF!"); return; }
 
             pdfBooksList.push({ title: title, link: link });
-            localStorage.setItem('mozakra_pdf_books_v1', JSON.stringify(pdfBooksList));
+            localStorage.setItem('mozakra_pdf_books_v2', JSON.stringify(pdfBooksList));
             
             document.getElementById('newPdfTitle').value = '';
             document.getElementById('newPdfLink').value = '';
-            
             renderPdfBooks();
-            alert("تم إضافة ونشر كتاب الـ PDF بنجاح لجميع طلاب المنصة!");
+            alert("تم نشر كتاب الـ PDF بنجاح!");
+        }
+
+        // إدارة الفيديوهات التعليمية
+        function renderVideos() {
+            let container = document.getElementById('videosContainer');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            if(videosList.length === 0) {
+                container.innerHTML = '<p style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 15px;">لا توجد فيديوهات مضافة حالياً.</p>';
+                return;
+            }
+
+            videosList.forEach((vid) => {
+                container.innerHTML += `
+                    <div class="media-card">
+                        <div class="media-info">
+                            <div class="media-icon video"><i class="fa-solid fa-play"></i></div>
+                            <div>
+                                <h5 style="font-size: 11px; font-weight: bold; color: var(--text-main);">${vid.title}</h5>
+                                <span style="font-size: 9px; color: var(--text-muted);">شرح فيديو مرئي</span>
+                            </div>
+                        </div>
+                        <a href="${vid.link}" target="_blank" class="media-btn"><i class="fa-solid fa-tv"></i> مشاهدة</a>
+                    </div>
+                `;
+            });
+        }
+
+        function addNewEducationalVideo() {
+            let title = document.getElementById('newVideoTitle').value.trim();
+            let link = document.getElementById('newVideoLink').value.trim();
+
+            if(!title || !link) { alert("يرجى إدخال عنوان ورابط الفيديو!"); return; }
+
+            videosList.push({ title: title, link: link });
+            localStorage.setItem('mozakra_videos_v1', JSON.stringify(videosList));
+            
+            document.getElementById('newVideoTitle').value = '';
+            document.getElementById('newVideoLink').value = '';
+            renderVideos();
+            alert("تم نشر الفيديو التعليمي بنجاح!");
         }
 
         function openModal(type) {
@@ -586,30 +659,20 @@
                 title.innerText = "سجل الحضور والغياب";
                 body.innerHTML = `حالة الحضور الحالية: <b>${acc.attendance}</b><br>حالة الانضباط: <b>${acc.absence}</b>`;
             } else if(type === 'exams') {
-                title.innerText = "درجات الاختبارات الشهرية والأسبوعية";
-                body.innerHTML = `الدرجة المسجلة: <b>${acc.score}</b><br>ملاحظات المعلم: الأداء جيد ومستمر في التقدم.`;
+                title.innerText = "درجات الاختبارات";
+                body.innerHTML = `الدرجة المسجلة: <b>${acc.score}</b>`;
             } else if(type === 'homework') {
-                title.innerText = "متابعة الواجب المدرسي والتمارين";
+                title.innerText = "متابعة الواجب المدرسي";
                 body.innerHTML = `حالة تسليم الواجب: <b>${acc.homework}</b>`;
             }
 
-            if(isTeacherMode) {
-                adminArea.classList.add('active');
-            } else {
-                adminArea.classList.remove('active');
-            }
+            if(isTeacherMode) { adminArea.classList.add('active'); } 
+            else { adminArea.classList.remove('active'); }
             modal.style.display = 'flex';
         }
 
-        function closeModal(e) {
-            if(e.target.id === 'customModal') {
-                document.getElementById('customModal').style.display = 'none';
-            }
-        }
-
-        function closeModalDirect() {
-            document.getElementById('customModal').style.display = 'none';
-        }
+        function closeModal(e) { if(e.target.id === 'customModal') { document.getElementById('customModal').style.display = 'none'; } }
+        function closeModalDirect() { document.getElementById('customModal').style.display = 'none'; }
 
         function saveAdminChanges() {
             let action = document.getElementById('adminActionSelect').value;
@@ -621,16 +684,16 @@
             else if(action === 'hw_done') { acc.homework = "تم التسليم والمراجعة"; }
 
             savedAccounts[currentStudentIndex] = acc;
-            localStorage.setItem('mozakra_pro_students_v5', JSON.stringify(savedAccounts));
+            localStorage.setItem('mozakra_pro_students_v6', JSON.stringify(savedAccounts));
             loginStudent(currentStudentIndex);
             document.getElementById('customModal').style.display = 'none';
-            alert("تم تحديث بيانات الطالب بنجاح!");
+            alert("تم تحديث البيانات بنجاح!");
         }
 
-        // المجتمع والدردشة التفاعلية
-        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v5')) || [
-            { sender: "مستر جلال الأتربي", text: "أهلاً بكم في مجموعة مادة الدراسات الاجتماعية للصف الثالث الإعدادي.", mine: false },
-            { sender: "محمد عنتر", text: "مرحباً يا مستر، تم الانتهاء من حل أسئلة خريطة العالم.", mine: true }
+        // الدردشة (البوت باسم AI Assistant Bot)
+        let communityMessages = JSON.parse(localStorage.getItem('mozakra_chat_v6')) || [
+            { sender: "AI Assistant Bot", text: "أهلاً بك في مجتمع المنصة! يمكنك طرح استفساراتك هنا وسيقوم الجميع بالرد عليك.", mine: false },
+            { sender: "محمد عنتر", text: "مرحباً بالجميع، تم الانتهاء من مراجعة المهام.", mine: true }
         ];
 
         function loadCommunityChat() {
@@ -655,67 +718,20 @@
             let acc = savedAccounts[currentStudentIndex];
             
             communityMessages.push({ sender: acc.name, text: text, mine: true });
-            localStorage.setItem('mozakra_chat_v5', JSON.stringify(communityMessages));
+            localStorage.setItem('mozakra_chat_v6', JSON.stringify(communityMessages));
             input.value = '';
             loadCommunityChat();
         }
 
-        function checkEnterChat(e) {
-            if(e.key === 'Enter') sendChatMessage();
-        }
+        function checkEnterChat(e) { if(e.key === 'Enter') sendChatMessage(); }
 
-        // --- مصفوفة الـ 50 سؤال الخاصة بالصف الثالث الإعدادي ---
+        // كويز 3 إعدادي
         const quizData = [
             { question: "تعد قارة أمريكا الشمالية أكبر قارات العالم الجديد من حيث المساحة.", a: "صح", b: "خطأ", correct: "a" },
             { question: "يصب نهر الأمازون في المحيط الهادي.", a: "صح", b: "خطأ", correct: "b" },
             { question: "تقع حضارة الإنكا في قارة أمريكا الجنوبية جهة...", a: "الشمال", b: "الجنوب", c: "الشرق", d: "الغرب", correct: "d" },
             { question: "أطول سلسلة جبلية في العالم هي جبال...", a: "الألب", b: "الأنديز", c: "الهمالايا", d: "روكي", correct: "b" },
-            { question: "أول وال عثماني على مصر بعد خروج الحملة الفرنسية هو...", a: "محمد علي", b: "خورشيد باشا", c: "خسرو باشا", d: "إبراهيم باشا", correct: "c" },
-            { question: "خط الطول الرئيسي يُعرف بخط...", a: "الاستواء", b: "جرينتش", c: "السرطان", d: "الجدي", correct: "b" },
-            { question: "تقع مصر في الركن الشمالي الشرقي لقارة...", a: "إفريقيا", b: "آسيا", c: "أوروبا", d: "أستراليا", correct: "a" },
-            { question: "المحيط الذي يحيط بالقطب الجنوبي هو المحيط...", a: "الهادي", b: "الأطلنطي", c: "المتجمّد الجنوبي", d: "الهندي", correct: "c" },
-            { question: "الدولة العثمانية فتحت قسطنطينية على يد السلطان...", a: "سليم الأول", b: "محمد الفاتح", c: "سليمان القانوني", d: "بايزيد الأول", correct: "b" },
-            { question: "معركة مرج دابق كانت عام 1516 بين العثمانيين و...", a: "المماليك", b: "الصفويين", c: "الفرنسيين", d: "الإنجليز", correct: "a" },
-            { question: "أكبر بحر مغلق في العالم هو البحر...", a: "المتوسط", b: "الأحمر", c: "قزوين", d: "الأسود", correct: "c" },
-            { question: "تقع شبه جزيرة إبرية في قارة...", a: "أوروبا", b: "آسيا", c: "إفريقيا", d: "أستراليا", correct: "a" },
-            { question: "عدد دول العالم العربي في الإجمالي يبلغ...", a: "20 دولة", b: "22 دولة", c: "25 دولة", d: "18 دولة", correct: "b" },
-            { question: "أعلى قمة جبلية في العالم هي قمة...", a: "إفرست", b: "كيليمنجارو", c: "مون بلان", d: "الكنغرو", correct: "a" },
-            { question: "تتميز مصر بوجود قناة السويس التي تربط بين البحر المتوسط و...", a: "البحر الأحمر", b: "الخليج العربي", c: "بحيرة ناصر", d: "المحيط الأطلنطي", correct: "a" },
-            { question: "تولى محمد علي حكم مصر بناءً على رغبة...", a: "السلطان العثماني", b: "زعماء الشعب المصري", c: "إنجلترا", d: "المماليك", correct: "b" },
-            { question: "تخلص محمد علي من الزعامة الشعبية بنفي الشيخ...", a: "عمر مكرم", b: "محمد المهدي", c: "الشرقاوي", d: "السادات", correct: "a" },
-            { question: "مذبحة القلعة تمت للتخلص من...", a: "العلماء", b: "المماليك", c: "الإنجليز", d: "المصريين", correct: "b" },
-            { question: "المرري الذي يمر وسط مصر هو مدار...", a: "السرطان", b: "الجدي", c: "الاستواء", d: "الدائرة القطبية", correct: "a" },
-            { question: "المساحة الكبرى من سطح الأرض تشغلها...", a: "اليابس", b: "الماء", c: "الجبال", d: "السهول", correct: "b" },
-            { question: "عاصمة دولة اليابان هي...", a: "طوكيو", b: "بكين", c: "سيول", d: "صنعاء", correct: "a" },
-            { question: "أقرب الكواكب للشمس هو كوكب...", a: "الزهرة", b: "عطارد", c: "المريخ", d: "المشتري", correct: "b" },
-            { question: "الكوكب الأحمر في المجموعة الشمسية هو...", a: "المريخ", b: "زحل", c: "الأرض", d: "الزهرة", correct: "a" },
-            { question: "أكبر كواكب المجموعة الشمسية حجماً هو...", a: "المشتري", b: "زحل", c: "نبتون", d: "أورانوس", correct: "a" },
-            { question: "معركة الريدانية انتهت بهزيمة...", a: "العثمانيين", b: "المماليك", c: "الفرنسيين", d: "المغول", correct: "b" },
-            { question: "الحملة الفرنسية على مصر كانت بقيادة...", a: "نيلسون", b: "نابليون بونابرت", c: "مينو", d: "كليبر", correct: "b" },
-            { question: "تحطمت أسطول الحملة الفرنسية في معركة...", a: "أبو قير البحرية", b: "أبو قير البرية", c: "الأهرامات", d: "الملك فهد", correct: "a" },
-            { question: "قُتل كليبر على يد الطالب...", a: "محمد كُرَيُّم", b: "سليمان الحلبي", c: "عمر مكرم", d: "أحمد الجزار", correct: "b" },
-            { question: "تأسست مدينة القاهرة على يد...", a: "جوهر الصقلي", b: "عمر بن الخطاب", c: "أحمد بن طولون", d: "محمد بن طغج", correct: "a" },
-            { question: "أطول نهر في العالم هو نهر...", a: "الأمازون", b: "النيل", c: "الميسيسيبي", d: "الدنوب", correct: "b" },
-            { question: "تقع أهرامات الجيزة في جمهورية...", a: "السودان", b: "مصر", c: "العراق", d: "سوريا", correct: "b" },
-            { question: "الغاز الأكثر توافداً في الغلاف الجوي للأرض هو...", a: "الأكسجين", b: "النيتروجين", c: "ثاني أكسيد الكربون", d: "الهيدروجين", correct: "b" },
-            { question: "تكونت البحيرات العظمى في قارة...", a: "أفريقيا", b: "أمريكا الشمالية", c: "أستراليا", d: "أوروبا", correct: "b" },
-            { question: "المضيق الذي يفصل بين قارتي إفريقيا وأوروبا هو مضيق...", a: "جبل طارق", b: "باب المندب", c: "هرمز", d: "البسفور", correct: "a" },
-            { question: "مضيق باب المندب يربط بين البحر الأحمر و...", a: "المحيط الهندي", b: "خليج عدن", c: "البحر المتوسط", d: "الخليج العربي", correct: "b" },
-            { question: "عاصمة مصر التاريخية الحالية هي...", a: "الإسكندرية", b: "القاهرة", c: "الجيزة", d: "أسوان", correct: "b" },
-            { question: "عدد أركان الإسلام الرئيسية...", a: "4 أركان", b: "5 أركان", c: "6 أركان", d: "3 أركان", correct: "b" },
-            { question: "سورة قرآنية تُسمى قلب القرآن هي سورة...", a: "البقرة", b: "الملك", c: "يس", d: "الرحمن", correct: "c" },
-            { question: "غزوة أُحد كانت في العام...", a: "2 هجريا", b: "3 هجريا", c: "5 هجريا", d: "8 هجريا", correct: "b" },
-            { question: "أول مؤذن في الإسلام هو الصحابي...", a: "بلال بن رباح", b: "عمر بن الخطاب", c: "أبو بكر الصديق", d: "عثمان بن عفان", correct: "a" },
-            { question: "ينسب بناء السد العالي إلى مدينة...", a: "قنا", b: "أسوان", c: "الأقصر", d: "سوهاج", correct: "b" },
-            { question: "الجهة المقابلة للشمال هي جهة...", a: "الشرق", b: "الجنوب", c: "الغرب", d: "الشمال الشرقي", correct: "b" },
-            { question: "دولة عربية يمر بها نهر النيل وتعتبر دولة مصب هي...", a: "السودان", b: "مصر", c: "إثيوبيا", d: "أوغندا", correct: "b" },
-            { question: "مقبرة توت عنخ آمون تم اكتشافها في...", a: "الأقصر", b: "الجيزة", c: "الإسكندرية", d: "أسوان", correct: "a" },
-            { question: "عدد أيام السنة الكبيسة هو...", a: "365 يوم", b: "366 يوم", c: "364 يوم", d: "360 يوم", correct: "b" },
-            { question: "أسرع حيوان بري في العالم هو...", a: "الأسد", b: "الفهد (الشيتا)", c: "الغزال", d: "الحصان", correct: "b" },
-            { question: "العنصر الكيميائي الذي يرمز له بالرمز (O) هو...", a: "الذهب", b: "الأكسجين", c: "الهيدروجين", d: "الحديد", correct: "b" },
-            { question: "العضو المسؤول عن ضخ الدم في جسم الإنسان هو...", a: "المخ", b: "القلب", c: "الكبد", d: "الرئتين", correct: "b" },
-            { question: "كم عدد سور القرآن الكريم؟", a: "112 سورة", b: "114 سورة", c: "120 سورة", d: "110 سورة", correct: "b" },
-            { question: "في أي قارة تقع دولة مصر العربية؟", a: "آسيا", b: "إفريقيا", c: "أوروبا", d: "أستراليا", correct: "b" }
+            { question: "أول وال عثماني على مصر بعد خروج الحملة الفرنسية هو...", a: "محمد علي", b: "خورشيد باشا", c: "خسرو باشا", d: "إبراهيم باشا", correct: "c" }
         ];
 
         let currentQuiz = 0;
@@ -724,7 +740,7 @@
         function openChallengeGame() {
             let acc = savedAccounts[currentStudentIndex];
             if(acc.grade !== "الصف الثالث الإعدادي") {
-                alert("مركز التحدي مخصص حالياً لطلاب الصف الثالث الإعدادي فقط!");
+                alert("مركز التحدي مخصص لطلاب الصف الثالث الإعدادي فقط!");
                 return;
             }
             showScreen('screen-quiz');
@@ -736,64 +752,46 @@
         function loadQuizData() {
             const optionsEl = document.getElementById('options-list');
             optionsEl.innerHTML = '';
-            
             const currentQuizData = quizData[currentQuiz];
             document.getElementById('question-text').innerText = currentQuizData.question;
             document.getElementById('question-counter').innerText = `السؤال: ${currentQuiz + 1} / ${quizData.length}`;
             document.getElementById('score-tracker').innerText = `النقاط: ${score}`;
 
-            const options = ['a', 'b', 'c', 'd'];
-            options.forEach(opt => {
+            ['a', 'b', 'c', 'd'].forEach(opt => {
                 if(currentQuizData[opt]) {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <input type="radio" name="quiz-answer" id="${opt}" class="quiz-answer" value="${opt}">
-                        <label for="${opt}">${currentQuizData[opt]}</label>
+                    optionsEl.innerHTML += `
+                        <li>
+                            <input type="radio" name="quiz-answer" id="${opt}" class="quiz-answer" value="${opt}">
+                            <label for="${opt}">${currentQuizData[opt]}</label>
+                        </li>
                     `;
-                    optionsEl.appendChild(li);
                 }
             });
-            document.getElementById('submit-quiz-btn').innerText = "السؤال التالي";
-        }
-
-        function getSelectedQuizAnswer() {
-            const answerEls = document.querySelectorAll('.quiz-answer');
-            let answer = undefined;
-            answerEls.forEach((answerEl) => {
-                if (answerEl.checked) {
-                    answer = answerEl.value;
-                }
-            });
-            return answer;
         }
 
         function submitQuizAnswer() {
-            const answer = getSelectedQuizAnswer();
+            let answer;
+            document.querySelectorAll('.quiz-answer').forEach(el => { if(el.checked) answer = el.value; });
             if (answer) {
-                if (answer === quizData[currentQuiz].correct) {
-                    score++;
-                }
+                if (answer === quizData[currentQuiz].correct) score++;
                 currentQuiz++;
-
                 if (currentQuiz < quizData.length) {
                     loadQuizData();
                 } else {
                     document.getElementById('quiz-header').innerHTML = `
                         <div style="text-align: center; padding: 20px 0;">
                             <i class="fa-solid fa-trophy" style="font-size: 40px; color: var(--accent-yellow); margin-bottom: 10px;"></i>
-                            <h2 style="color: var(--primary-blue); font-size: 16px;">أحسنت يا بطل 3 إعدادي!</h2>
-                            <h3 style="color: var(--accent-green); font-size: 18px; margin-top: 10px;">نتيجتك النهائية: ${score} من ${quizData.length}</h3>
+                            <h2 style="color: var(--primary-blue); font-size: 16px;">أحسنت يا بطل!</h2>
+                            <h3 style="color: var(--accent-green); font-size: 18px; margin-top: 10px;">نتيجتك: ${score} من ${quizData.length}</h3>
                         </div>
                     `;
                     document.getElementById('submit-quiz-btn').innerText = "العودة للوحة المتابعة";
-                    document.getElementById('submit-quiz-btn').onclick = function() {
-                        showScreen('screen-dashboard');
-                    };
+                    document.getElementById('submit-quiz-btn').onclick = () => showScreen('screen-dashboard');
                 }
             } else {
-                alert("يرجى اختيار إجابة أولاً يا بطل!");
+                alert("يرجى اختيار إجابة أولاً!");
             }
         }
     </script>
 </body>
-</html> 
+</html>
