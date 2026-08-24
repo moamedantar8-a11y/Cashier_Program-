@@ -1,653 +1,738 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Smashy Road: True 40 Features Edition - MK Creative Agency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Creator Hub | Next Founders Hackathon</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: 'Courier New', Courier, monospace; }
-        body { background-color: #0d0d0d; color: #fff; overflow: hidden; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        #rotate-warning {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #111; color: #fff; display: none;
-            flex-direction: column; justify-content: center; align-items: center; z-index: 3000; text-align: center; padding: 20px;
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
         }
-        #rotate-warning h2 { color: #f1c40f; font-size: 24px; margin-bottom: 10px; }
 
-        #loading-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #12121a; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 2500; text-align: center; padding: 20px;
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
         }
-        #loading-screen h1 { color: #f39c12; font-size: 28px; margin-bottom: 5px; text-shadow: 2px 2px #000; }
-        #loading-screen p { color: #a6b9cc; font-size: 11px; margin-bottom: 20px; }
-        .progress-bar-container { width: 260px; height: 12px; background: #111; border: 2px solid #f39c12; border-radius: 10px; overflow: hidden; padding: 2px; }
-        .progress-bar-fill { width: 0%; height: 100%; background: #f39c12; border-radius: 6px; transition: width 0.1s linear; }
 
-        #game-container {
-            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
-            display: none; flex-direction: row; background: #000;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
         }
-        .view-port {
-            flex: 1; height: 100%; position: relative; overflow: hidden; border-left: 2px solid #f39c12;
-        }
-        .view-port canvas { display: block; width: 100%; height: 100%; background: #8cd652; }
 
-        .hud-overlay {
-            position: absolute; top: 12px; left: 12px; background: rgba(0, 0, 0, 0.75);
-            border: 2px solid #f39c12; padding: 6px 10px; border-radius: 8px; font-size: 10px; z-index: 10; pointer-events: none;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        .speedometer {
-            position: absolute; top: 12px; right: 125px; background: rgba(0,0,0,0.8);
-            border: 2px solid #3498db; padding: 6px 10px; border-radius: 8px; font-size: 10px; color: #3498db; z-index: 10; font-weight: bold;
-        }
-        #minimap-container {
-            position: absolute; top: 12px; right: 12px; width: 95px; height: 95px;
-            background: rgba(0,0,0,0.8); border: 2px solid #f39c12; border-radius: 50%;
-            overflow: hidden; z-index: 10; pointer-events: none; display: flex; justify-content: center; align-items: center;
-        }
-        #minimap-canvas { width: 85px; height: 85px; border-radius: 50%; }
 
-        .control-btn {
-            position: absolute; bottom: 15px; width: 60px; height: 60px;
-            background: rgba(0, 0, 0, 0.5); border: 3px solid rgba(255, 255, 255, 0.8);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: #fff; z-index: 10; cursor: pointer;
+        .navbar nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.3s;
         }
-        .control-btn:active { background: rgba(0, 0, 0, 0.8); }
 
-        .btn-left { left: 15px; }
-        .btn-right { left: 85px; }
-        .btn-action { right: 15px; bottom: 15px; width: 65px; height: 65px; background: rgba(231, 76, 60, 0.85); border-color: #f1c40f; font-size: 9px; font-weight: bold; text-align: center; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .navbar nav a:hover {
+            color: #38bdf8;
+        }
 
-        #ui-screen {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(18, 18, 24, 0.97); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 20; text-align: center; padding: 15px; overflow-y: auto;
+        /* Lang Switcher Button */
+        .lang-btn {
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        .company-badge {
-            background: rgba(243, 156, 18, 0.15); border: 2px dashed #f39c12; color: #f39c12;
-            padding: 4px 12px; border-radius: 20px; font-size: 10px; margin-bottom: 5px; font-weight: bold;
-        }
-        #ui-screen h1 { color: #f39c12; font-size: 16px; margin-bottom: 3px; text-shadow: 2px 2px #000; }
-        #ui-screen h2 { color: #ecf0f1; font-size: 8px; margin-bottom: 8px; }
-        .selection-group { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; justify-content: center; }
-        .card-box {
-            background: rgba(255,255,255,0.05); border: 2px solid #555; padding: 5px 8px; border-radius: 6px; cursor: pointer; min-width: 75px;
-        }
-        .card-box.selected { border-color: #f39c12; background: rgba(243, 156, 18, 0.15); }
-        .card-box h3 { color: #f39c12; font-size: 10px; margin-bottom: 2px; }
-        .card-box p { color: #aaa; font-size: 6px; }
 
-        .main-btn {
-            padding: 7px 20px; background: #f39c12; color: #111; font-weight: bold;
-            font-size: 11px; border: 3px solid #d35400; cursor: pointer; border-radius: 6px; box-shadow: 0 3px #7f8c8d; margin-top: 4px;
+        .lang-btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
         }
-        .main-btn:active { transform: translateY(3px); box-shadow: 0 1px #7f8c8d; }
+
+        .cta-btn {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #0ea5e9;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .hero-buttons .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .btn.primary {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .features h2, .interactive-tool h2, .business-model h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #38bdf8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1px solid #334155;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        /* Interactive Tool Section */
+        .interactive-tool {
+            padding: 80px 10%;
+            text-align: center;
+            background: #0b1120;
+        }
+
+        .tool-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .cat-btn {
+            background: #0f172a;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 8px;
+            color: #e2e8f0;
+            border: 1px dashed #38bdf8;
+            text-align: inherit;
+            min-height: 110px;
+            font-size: 17px;
+            position: relative;
+        }
+
+        /* Action Buttons Inside Result */
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+
+        .action-tool-btn {
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .action-tool-btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* Saved Ideas Box */
+        .saved-section {
+            margin-top: 30px;
+            text-align: inherit;
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .saved-section h4 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .saved-list {
+            list-style: none;
+            max-height: 120px;
+            overflow-y: auto;
+            padding-left: 5px;
+        }
+
+        .saved-list li {
+            background: #1e293b;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .saved-list li button {
+            background: transparent;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(56, 189, 248, 0.3);
+            border-radius: 50%;
+            border-top-color: #38bdf8;
+            animation: spin 0.8s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Business Model Section */
+        .business-model {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .b-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .b-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0b1120;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+        }
     </style>
 </head>
 <body>
 
-    <div id="rotate-warning">
-        <h2>⚠️ يرجى تدوير الهاتف</h2>
-        <p>اللعبة مصممة للعمل بالوضع الأفقي (Landscape).</p>
-    </div>
-
-    <div id="loading-screen">
-        <h1>MK CREATIVE AGENCY</h1>
-        <h3>TRUE 40 FEATURES EDITION</h3>
-        <p>جاري تحميل محرك الجزيئات، المؤثرات الصوتية، والفيزياء المتقدمة...</p>
-        <div class="progress-bar-container">
-            <div class="progress-bar-fill" id="progress-fill"></div>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i> <span id="navLogo">MK Creator Hub</span>
         </div>
-    </div>
+        <div class="nav-links">
+            <nav>
+                <a href="#features" id="navFeatures">المميزات</a>
+                <a href="#tool" id="navTool">الأداة التفاعلية</a>
+                <a href="#business" id="navBusiness">نموذج البيزنس</a>
+            </nav>
+            <!-- زر تغيير اللغة -->
+            <button class="lang-btn" onclick="toggleLanguage()" id="langSwitchBtn">English 🌐</button>
+            <a href="#tool" class="cta-btn" id="navCta">ابدأ الآن</a>
+        </div>
+    </header>
 
-    <div id="ui-screen">
-        <div class="company-badge">⚡ تطوير وإبداع: MK CREATIVE AGENCY ⚡</div>
-        <h1>SMASHY ROAD: TRUE ADVANCED EDITION</h1>
-        <h2>تضم شادر الأتربة المتحركة، عدادات السرعة الديجيتال، جزيئات الدخان، واهتزاز الشاشة!</h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="welcome-badge" id="welcomeBadge">👋 أهلاً بك يا محمد في منصتك الذكية</div>
+            <h1 id="heroTitle">منصتك الذكية لإدارة المحتوى وصناع المشاريع الناشئة</h1>
+            <p id="heroDesc">أداة ويب متكاملة مصممة خصيصاً لمساعدة المبدعين وأصحاب الوكالات على تنظيم أفكارهم ومشاريعهم بكل سهولة واحترافية.</p>
+            <div class="hero-buttons">
+                <a href="#tool" class="btn primary" id="heroBtn1">جرب الأداة الآن</a>
+                <a href="#features" class="btn secondary" id="heroBtn2">اكتشف المميزات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 id="featuresHeading">لماذا MK Creator Hub؟</h2>
+        <div class="features-grid">
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3 id="feat1Title">سرعة وأداء عالي</h3>
+                <p id="feat1Desc">مبني بأحدث تقنيات الـ Front-End لضمان تجربة مستخدم سلسة وسريعة جداً.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3 id="feat2Title">تتبع وتخطيط المشاريع</h3>
+                <p id="feat2Desc">نظام ذكي يساعدك على متابعة مهامك ومشاريعك اليومية بدون تعقيد.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3 id="feat3Title">موثوق وآمن</h3>
+                <p id="feat3Desc">حماية كاملة لبياناتك وأفكارك ومشاريعك الناشئة في مكان واحد.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tool Section (The Core Feature) -->
+    <section id="tool" class="interactive-tool">
+        <h2 id="toolHeading">مولد الأفكار السريع للمشاريع 💡</h2>
+        <p id="toolSub">اختر المجال الذي تود استكشاف أفكاره:</p>
         
-        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">نمط اللعب:</div>
-        <div class="selection-group">
-            <div class="card-box selected" id="card-solo" onclick="setGameMode('solo')">
-                <h3>👤 فردي</h3>
-                <p>شاشة كاملة</p>
+        <div class="tool-box">
+            <!-- أزرار المجالات التفاعلية -->
+            <div class="category-buttons">
+                <button class="cat-btn" onclick="showIdea('code')" id="btnCode">💻 برمجة (Code)</button>
+                <button class="cat-btn" onclick="showIdea('editing')" id="btnEditing">🎬 مونتاج (Editing)</button>
+                <button class="cat-btn" onclick="showIdea('design')" id="btnDesign">🎨 تصميم (Design)</button>
+                <button class="cat-btn" onclick="showIdea('marketing')" id="btnMarketing">📈 تسويق (Marketing)</button>
             </div>
-            <div class="card-box" id="card-coop" onclick="setGameMode('coop')">
-                <h3>👥 ثنائي</h3>
-                <p>شاشتان</p>
+
+            <!-- مربع عرض النتيجة والأفكار -->
+            <div id="ideaResult" class="result-box">
+                اختر أحد المجالات بالأعلى لتوليد فكرة مشروع احترافية فوراً... 🚀
             </div>
-            <div class="card-box" id="card-triple" onclick="setGameMode('triple')">
-                <h3>👨‍👦‍👦 ثلاثي</h3>
-                <p>3 لاعبين</p>
+
+            <!-- قائمة الأفكار المحفوظة -->
+            <div class="saved-section">
+                <h4 id="savedHeading">📌 الأفكار المحفوظة المفضلة:</h4>
+                <ul id="savedList" class="saved-list">
+                    <li style="color: #64748b; text-align: center; display: block;" id="noSavedText">لا توجد أفكار محفوظة حالياً...</li>
+                </ul>
             </div>
         </div>
+    </section>
 
-        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">اختر المركبة:</div>
-        <div class="selection-group">
-            <div class="card-box selected" id="car-sedan" onclick="setVehicleType('sedan')">
-                <h3>🚗 سيدان</h3>
-                <p>متوازنة</p>
+    <!-- Business Model Section -->
+    <section id="business" class="business-model">
+        <h2 id="busHeading">نموذج العمل والربح (Business Model)</h2>
+        <div class="business-grid">
+            <div class="b-card">
+                <h3 id="bus1Title">اشتراكات شهرية (SaaS)</h3>
+                <p id="bus1Desc">باقات مدفوعة للميزات المتقدمة وتخزين أكبر للمشاريع.</p>
             </div>
-            <div class="card-box" id="car-tank" onclick="setVehicleType('tank')">
-                <h3>🛡️ دبابة</h3>
-                <p>مصفحة</p>
-            </div>
-            <div class="card-box" id="car-moto" onclick="setVehicleType('moto')">
-                <h3>🏍️ دراجة</h3>
-                <p>فائقة السرعة</p>
-            </div>
-        </div>
-
-        <button class="main-btn" onclick="startGame()">انطلق الآن 🚀</button>
-    </div>
-
-    <div id="game-container">
-        <div class="view-port" id="viewport-1">
-            <canvas id="canvas1"></canvas>
-            <div class="hud-overlay" id="hud-1">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-1">SPD: 0 KM/H</div>
-            <div class="control-btn btn-left" id="btn-p1-left">◀</div>
-            <div class="control-btn btn-right" id="btn-p1-right">▶</div>
-            <div class="control-btn btn-action" id="btn-p1-action">
-                <span>ركوب/نزول</span>
-                <span id="p1-arrow">⬇</span>
+            <div class="b-card">
+                <h3 id="bus2Title">الخدمات الاستشارية</h3>
+                <p id="bus2Desc">ربط صناع المحتوى بالخبراء لتطوير أعمالهم مقابل نسبة عمولة.</p>
             </div>
         </div>
+    </section>
 
-        <div class="view-port" id="viewport-2" style="display:none;">
-            <canvas id="canvas2"></canvas>
-            <div class="hud-overlay" id="hud-2">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-2">SPD: 0 KM/H</div>
-            <div class="control-btn btn-left" id="btn-p2-left">◄</div>
-            <div class="control-btn btn-right" id="btn-p2-right">►</div>
-            <div class="control-btn btn-action" id="btn-p2-action" style="background: rgba(52, 152, 219, 0.85);">
-                <span>تبديل</span>
-                <span id="p2-arrow">🚗</span>
-            </div>
-        </div>
-
-        <div class="view-port" id="viewport-3" style="display:none;">
-            <canvas id="canvas3"></canvas>
-            <div class="hud-overlay" id="hud-3">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-3">SPD: 0 KM/H</div>
-            <div class="control-btn btn-left" id="btn-p3-left">◀</div>
-            <div class="control-btn btn-right" id="btn-p3-right">▶</div>
-            <div class="control-btn btn-action" id="btn-p3-action" style="background: rgba(155, 89, 182, 0.85);">
-                <span>تبديل</span>
-                <span id="p3-arrow">🚗</span>
-            </div>
-        </div>
-
-        <div id="minimap-container">
-            <canvas id="minimap-canvas" width="85" height="85"></canvas>
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p id="footerText">تم تطوير هذا المشروع خصيصاً لـ Next Founders Hackathon | تصميم وبناء فريق MK</p>
+    </footer>
 
     <script>
-        // نظام صوتي تفاعلي حقيقي متطور (Web Audio API)
-        let audioCtx = null;
-        function playSound(type) {
-            try {
-                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                osc.connect(gain); gain.connect(audioCtx.destination);
-                if (type === 'coin') {
-                    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(1600, audioCtx.currentTime + 0.08);
-                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.08);
-                } else if (type === 'crash') {
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                    osc.frequency.linearRampToValueAtTime(30, audioCtx.currentTime + 0.15);
-                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.15);
-                }
-            } catch(e) {}
-        }
+        let currentLang = 'ar';
+        let currentGeneratedIdea = '';
+        let savedIdeas = JSON.parse(localStorage.getItem('mk_saved_ideas')) || [];
 
-        const canvas1 = document.getElementById('canvas1'); const ctx1 = canvas1.getContext('2d', { alpha: false });
-        const canvas2 = document.getElementById('canvas2'); const ctx2 = canvas2.getContext('2d', { alpha: false });
-        const canvas3 = document.getElementById('canvas3'); const ctx3 = canvas3.getContext('2d', { alpha: false });
-        const miniCanvas = document.getElementById('minimap-canvas'); const miniCtx = miniCanvas.getContext('2d');
-
-        const warningScreen = document.getElementById('rotate-warning');
-        const loadingScreen = document.getElementById('loading-screen');
-        const progressFill = document.getElementById('progress-fill');
-        const uiScreen = document.getElementById('ui-screen');
-        const viewport2 = document.getElementById('viewport-2');
-        const viewport3 = document.getElementById('viewport-3');
-        const gameContainer = document.getElementById('game-container');
-
-        let loadProgress = 0;
-        let loadInterval = setInterval(() => {
-            loadProgress += 15;
-            progressFill.style.width = loadProgress + '%';
-            if (loadProgress >= 100) { clearInterval(loadInterval); loadingScreen.style.display = 'none'; }
-        }, 10);
-
-        function resizeCanvases() {
-            if (gameMode === 'triple') {
-                canvas1.width = window.innerWidth / 3; canvas1.height = window.innerHeight;
-                canvas2.width = window.innerWidth / 3; canvas2.height = window.innerHeight;
-                canvas3.width = window.innerWidth / 3; canvas3.height = window.innerHeight;
-            } else if (gameMode === 'coop') {
-                canvas1.width = window.innerWidth / 2; canvas1.height = window.innerHeight;
-                canvas2.width = window.innerWidth / 2; canvas2.height = window.innerHeight;
-            } else {
-                canvas1.width = window.innerWidth; canvas1.height = window.innerHeight;
+        const translations = {
+            ar: {
+                welcomeBadge: "👋 أهلاً بك يا محمد في منصتك الذكية",
+                navFeatures: "المميزات",
+                navTool: "الأداة التفاعلية",
+                navBusiness: "نموذج البيزنس",
+                navCta: "ابدأ الآن",
+                langSwitchBtn: "English 🌐",
+                heroTitle: "منصتك الذكية لإدارة المحتوى وصناع المشاريع الناشئة",
+                heroDesc: "أداة ويب متكاملة مصممة خصيصاً لمساعدة المبدعين وأصحاب الوكالات على تنظيم أفكارهم ومشاريعهم بكل سهولة واحترافية.",
+                heroBtn1: "جرب الأداة الآن",
+                heroBtn2: "اكتشف المميزات",
+                featuresHeading: "لماذا MK Creator Hub؟",
+                feat1Title: "سرعة وأداء عالي",
+                feat1Desc: "مبني بأحدث تقنيات الـ Front-End لضمان تجربة مستخدم سلسة وسريعة جداً.",
+                feat2Title: "تتبع وتخطيط المشاريع",
+                feat2Desc: "نظام ذكي يساعدك على متابعة مهامك ومشاريعك اليومية بدون تعقيد.",
+                feat3Title: "موثوق وآمن",
+                feat3Desc: "حماية كاملة لبياناتك وأفكارك ومشاريعك الناشئة في مكان واحد.",
+                toolHeading: "مولد الأفكار السريع للمشاريع 💡",
+                toolSub: "اختر المجال الذي تود استكشاف أفكاره:",
+                btnCode: "💻 برمجة (Code)",
+                btnEditing: "🎬 مونتاج (Editing)",
+                btnDesign: "🎨 تصميم (Design)",
+                btnMarketing: "📈 تسويق (Marketing)",
+                defaultResult: "اختر أحد المجالات بالأعلى لتوليد فكرة مشروع احترافية فوراً... 🚀",
+                savedHeading: "📌 الأفكار المحفوظة المفضلة:",
+                noSavedText: "لا توجد أفكار محفوظة حالياً...",
+                busHeading: "نموذج العمل والربح (Business Model)",
+                bus1Title: "اشتراكات شهرية (SaaS)",
+                bus1Desc: "باقات مدفوعة للميزات المتقدمة وتخزين أكبر للمشاريع.",
+                bus2Title: "الخدمات الاستشارية",
+                bus2Desc: "ربط صناع المحتوى بالخبراء لتطوير أعمالهم مقابل نسبة عمولة.",
+                footerText: "تم تطوير هذا المشروع خصيصاً لـ Next Founders Hackathon | تصميم وبناء فريق MK"
+            },
+            en: {
+                welcomeBadge: "👋 Welcome Mohamed to your smart platform",
+                navFeatures: "Features",
+                navTool: "Interactive Tool",
+                navBusiness: "Business Model",
+                navCta: "Get Started",
+                langSwitchBtn: "العربية 🌐",
+                heroTitle: "Your Smart Platform for Content & Startup Management",
+                heroDesc: "A complete web tool designed specifically to help creators and agency owners organize ideas and projects smoothly and professionally.",
+                heroBtn1: "Try Tool Now",
+                heroBtn2: "Explore Features",
+                featuresHeading: "Why MK Creator Hub?",
+                feat1Title: "High Speed & Performance",
+                feat1Desc: "Built with modern Front-End technologies to ensure an ultra-smooth user experience.",
+                feat2Title: "Project Tracking & Planning",
+                feat2Desc: "A smart system to help you track daily tasks and projects without complexity.",
+                feat3Title: "Secure & Reliable",
+                feat3Desc: "Complete protection for your data, ideas, and startup projects in one place.",
+                toolHeading: "Quick Startup Idea Generator 💡",
+                toolSub: "Choose the field you want to explore ideas for:",
+                btnCode: "💻 Code",
+                btnEditing: "🎬 Editing",
+                btnDesign: "🎨 Design",
+                btnMarketing: "📈 Marketing",
+                defaultResult: "Select one of the fields above to instantly generate a professional project idea... 🚀",
+                savedHeading: "📌 Saved Favorite Ideas:",
+                noSavedText: "No saved ideas yet...",
+                busHeading: "Business Model",
+                bus1Title: "Monthly Subscriptions (SaaS)",
+                bus1Desc: "Paid tiers for advanced features and higher project storage.",
+                bus2Title: "Consulting Services",
+                bus2Desc: "Connecting content creators with experts to grow their business for a commission.",
+                footerText: "Developed exclusively for Next Founders Hackathon | Designed & Built by MK Team"
             }
-        }
-        window.addEventListener('resize', resizeCanvases);
-
-        function checkOrientation() {
-            if (window.innerWidth < 768 && window.innerHeight > window.innerWidth) {
-                warningScreen.style.display = 'flex';
-            } else {
-                warningScreen.style.display = 'none';
-            }
-        }
-        window.addEventListener('resize', checkOrientation);
-        window.addEventListener('load', checkOrientation);
-
-        let gameMode = 'solo';
-        let selectedVehicleType = 'sedan';
-        let isPlaying = false, score = 0, coins = 0, wantedStars = 1;
-        let screenShakeFrames = 0;
-
-        let p1 = { state: 'driving', car: { x: -150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#e74c3c' }, foot: { x: -150, y: 50, angle: 0, speed: 3.5, radius: 10 } };
-        let p2 = { state: 'driving', car: { x: 150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#3498db' }, foot: { x: 150, y: 50, angle: 0, speed: 3.5, radius: 10 } };
-        let p3 = { state: 'driving', car: { x: 0, y: 150, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#9b59b6' }, foot: { x: 0, y: 200, angle: 0, speed: 3.5, radius: 10 } };
-
-        let buildings = [], cops = [], movingTrafficCars = [], goldCoins = [], nitroBoosts = [], dustParticles = [], smokeParticles = [], train = { x: 0, y: -800, speed: 4.5 };
-
-        function setGameMode(mode) {
-            gameMode = mode;
-            ['solo', 'coop', 'triple'].forEach(m => document.getElementById('card-' + m).classList.remove('selected'));
-            document.getElementById('card-' + mode).classList.add('selected');
-            viewport2.style.display = (mode === 'coop' || mode === 'triple') ? 'block' : 'none';
-            viewport3.style.display = (mode === 'triple') ? 'block' : 'none';
-        }
-
-        function setVehicleType(vType) {
-            selectedVehicleType = vType;
-            ['sedan', 'tank', 'moto'].forEach(v => document.getElementById('car-' + v).classList.remove('selected'));
-            document.getElementById('car-' + vType).classList.add('selected');
-        }
-
-        function generateCity() {
-            buildings = [];
-            let blockSize = 440; let roadWidth = 140;
-            for (let x = -3000; x < 3000; x += blockSize) {
-                for (let y = -3000; y < 3000; y += blockSize) {
-                    if (Math.abs(x) < 600 && Math.abs(y) < 600) continue;
-                    buildings.push({ 
-                        x: x + roadWidth/2, y: y + roadWidth/2, 
-                        width: blockSize - roadWidth, height: blockSize - roadWidth, 
-                        color: ['#4a6572', '#5d6d7e', '#34495e', '#7f8c8d'][Math.floor(Math.random() * 4)]
-                    });
-                }
-            }
-        }
-
-        function generateEntities() {
-            goldCoins = [];
-            for (let i = 0; i < 70; i++) goldCoins.push({ x: (Math.random() - 0.5) * 4500, y: (Math.random() - 0.5) * 4500, collected: false });
-
-            nitroBoosts = [];
-            for (let i = 0; i < 30; i++) nitroBoosts.push({ x: (Math.random() - 0.5) * 4000, y: (Math.random() - 0.5) * 4000, active: true });
-
-            movingTrafficCars = [];
-            for (let i = 0; i < 40; i++) {
-                movingTrafficCars.push({
-                    x: (Math.random() - 0.5) * 4000, y: (Math.random() - 0.5) * 4000,
-                    angle: Math.random() * Math.PI * 2, speed: 2.8 + Math.random() * 2,
-                    bodyColor: ['#e74c3c', '#27ae60', '#f1c40f', '#e67e22', '#1abc9c'][Math.floor(Math.random() * 5)]
-                });
-            }
-
-            // توليد جزيئات الأتربة المتطايرة في البيئة (ميزة بصرية متقدمة)
-            dustParticles = [];
-            for (let i = 0; i < 150; i++) {
-                dustParticles.push({ x: (Math.random() - 0.5) * 5000, y: (Math.random() - 0.5) * 5000, size: Math.random() * 2 + 1, alpha: Math.random() * 0.4 + 0.1 });
-            }
-            smokeParticles = [];
-        }
-
-        function configurePlayerVehicle(p, type) {
-            if (type === 'tank') {
-                p.car.maxSpeed = 6.5; p.car.maxHits = 130; p.car.bodyColor = '#27ae60'; p.car.radius = 20;
-            } else if (type === 'moto') {
-                p.car.maxSpeed = 12.5; p.car.maxHits = 25; p.car.bodyColor = '#f39c12'; p.car.radius = 12;
-            } else {
-                p.car.maxSpeed = 10; p.car.maxHits = 45; p.car.bodyColor = '#e74c3c'; p.car.radius = 16;
-            }
-        }
-
-        function startGame() {
-            uiScreen.style.display = 'none'; gameContainer.style.display = 'flex'; resizeCanvases();
-
-            isPlaying = true; score = 0; coins = parseInt(localStorage.getItem('mk_coins') || '0'); wantedStars = 1;
-            
-            configurePlayerVehicle(p1, selectedVehicleType);
-            p1.state = 'driving'; p1.car.x = -150; p1.car.y = 0; p1.car.angle = -Math.PI / 2; p1.car.speed = 4; p1.car.hitCount = 0;
-            
-            if (gameMode === 'coop' || gameMode === 'triple') {
-                configurePlayerVehicle(p2, 'sedan');
-                p2.state = 'driving'; p2.car.x = 150; p2.car.y = 0; p2.car.angle = -Math.PI / 2; p2.car.speed = 4; p2.car.hitCount = 0;
-            }
-            if (gameMode === 'triple') {
-                configurePlayerVehicle(p3, 'sedan');
-                p3.state = 'driving'; p3.car.x = 0; p3.car.y = 150; p3.car.angle = -Math.PI / 2; p3.car.speed = 4; p3.car.hitCount = 0;
-            }
-
-            cops = [{ x: 700, y: 700, speed: 3.7, radius: 16, carAngle: 0 }];
-            
-            generateCity(); generateEntities(); loop();
-        }
-
-        let p1Left = false, p1Right = false, p2Left = false, p2Right = false, p3Left = false, p3Right = false;
-
-        const setupTouch = (lBtn, rBtn, actBtn, pNum) => {
-            lBtn.addEventListener('touchstart', (e) => { e.preventDefault(); if(pNum===1)p1Left=true; if(pNum===2)p2Left=true; if(pNum===3)p3Left=true; });
-            lBtn.addEventListener('touchend', () => { if(pNum===1)p1Left=false; if(pNum===2)p2Left=false; if(pNum===3)p3Left=false; });
-            rBtn.addEventListener('touchstart', (e) => { e.preventDefault(); if(pNum===1)p1Right=true; if(pNum===2)p2Right=true; if(pNum===3)p3Right=true; });
-            rBtn.addEventListener('touchend', () => { if(pNum===1)p1Right=false; if(pNum===2)p2Right=false; if(pNum===3)p3Right=false; });
-            lBtn.addEventListener('mousedown', () => { if(pNum===1)p1Left=true; if(pNum===2)p2Left=true; if(pNum===3)p3Left=true; });
-            lBtn.addEventListener('mouseup', () => { if(pNum===1)p1Left=false; if(pNum===2)p2Left=false; if(pNum===3)p3Left=false; });
-            rBtn.addEventListener('mousedown', () => { if(pNum===1)p1Right=true; if(pNum===2)p2Right=true; if(pNum===3)p3Right=true; });
-            rBtn.addEventListener('mouseup', () => { if(pNum===1)p1Right=false; if(pNum===2)p2Right=false; if(pNum===3)p3Right=false; });
-            actBtn.addEventListener('click', () => togglePlayerState(pNum));
-            actBtn.addEventListener('touchstart', (e) => { e.preventDefault(); togglePlayerState(pNum); });
         };
 
-        setupTouch(document.getElementById('btn-p1-left'), document.getElementById('btn-p1-right'), document.getElementById('btn-p1-action'), 1);
-        setupTouch(document.getElementById('btn-p2-left'), document.getElementById('btn-p2-right'), document.getElementById('btn-p2-action'), 2);
-        setupTouch(document.getElementById('btn-p3-left'), document.getElementById('btn-p3-right'), document.getElementById('btn-p3-action'), 3);
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') p1Left = true; if (e.key === 'ArrowRight') p1Right = true;
-            if (e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); togglePlayerState(1); }
-            if (e.key.toLowerCase() === 'a') p2Left = true; if (e.key.toLowerCase() === 'd') p2Right = true;
-            if (e.key.toLowerCase() === 's') { e.preventDefault(); togglePlayerState(2); }
-            if (e.key.toLowerCase() === 'j') p3Left = true; if (e.key.toLowerCase() === 'l') p3Right = true;
-            if (e.key.toLowerCase() === 'k') { e.preventDefault(); togglePlayerState(3); }
-        });
-
-        window.addEventListener('keyup', (e) => {
-            if (e.key === 'ArrowLeft') p1Left = false; if (e.key === 'ArrowRight') p1Right = false;
-            if (e.key.toLowerCase() === 'a') p2Left = false; if (e.key.toLowerCase() === 'd') p2Right = false;
-            if (e.key.toLowerCase() === 'j') p3Left = false; if (e.key.toLowerCase() === 'l') p3Right = false;
-        });
-
-        function togglePlayerState(pNum) {
-            if (!isPlaying) return;
-            let players = [null, p1, p2, p3]; let p = players[pNum];
-            let arrow = document.getElementById(`p${pNum}-arrow`);
-
-            if (p.state === 'driving') {
-                p.state = 'onFoot'; p.foot.x = p.car.x + 30; p.foot.y = p.car.y + 30; p.foot.angle = p.car.angle;
-                movingTrafficCars.push({ x: p.car.x, y: p.car.y, angle: p.car.angle, speed: 2.2, bodyColor: p.car.bodyColor });
-                arrow.textContent = '⬆';
-            } else if (p.state === 'onFoot') {
-                let nearestIdx = -1, minDist = 110;
-                movingTrafficCars.forEach((car, index) => {
-                    let dist = Math.hypot(p.foot.x - car.x, p.foot.y - car.y);
-                    if (dist < minDist) { minDist = dist; nearestIdx = index; }
-                });
-                if (nearestIdx !== -1) {
-                    let chosenCar = movingTrafficCars.splice(nearestIdx, 1)[0];
-                    p.car.x = chosenCar.x; p.car.y = chosenCar.y; p.car.angle = chosenCar.angle; p.car.speed = 3;
-                    p.car.bodyColor = chosenCar.bodyColor; p.state = 'driving';
-                    arrow.textContent = '⬇';
-                }
+        const ideasDatabase = {
+            ar: {
+                code: [
+                    "تطوير منصة ويب تفاعلية لربط المبرمجين المبتدئين بالمشاريع المصغرة.",
+                    "بناء أداة سحابية لتوليد وتنسيق أكواد الـ CSS بشكل أوتوماتيكي وسريع.",
+                    "إنشاء نظام لوحة تحكم (Dashboard) مفتوح المصدر لإدارة مهام مطوري الـ Front-End.",
+                    "تطبيق ويب لفحص الثغرات الأمنية البسيطة في مواقع الويب الناشئة.",
+                    "منصة لاختبار سرعة وأداء صفحات الويب مع تقديم تقارير تحسين تلقائية."
+                ],
+                editing: [
+                    "نظام تتبع وإدارة أرباح الإعلانات والرعايات الخاصة بالقناة في لوحة تحكم واحدة.",
+                    "تطوير أداة ويب لجدولة ومراجعة الفيديوهات القصيرة (Shorts/Reels) قبل نشرها.",
+                    "منصة تواصل تربط أصحاب القنوات بمحرري الفيديو والمونيتيرز الموهوبين.",
+                    "أداة ويب لاقتراح العناوين والوصف المناسب لفيديوهات اليوتيوب بناءً على المحتوى.",
+                    "نظام تخزين سحابي مصغر مخصص لمشاركة ملفات الفيديو الخام الضخمة بين الفريق."
+                ],
+                design: [
+                    "أداة توليد أنظمة ألوان متناسقة (Color Palettes) بضغطة زر واحدة.",
+                    "إنشاء مكتبة مجانية على الويب لتصاميم الصور المصغرة (Thumbnails) القابلة للتعديل.",
+                    "منصة لتقييم تصاميم واجهات المستخدم (UI/UX) وتقديم ملاحظات فورية.",
+                    "أداة لدمج وتحويل صيغ الصور وتغيير مقاساتها لمنصات السوشيال ميديا.",
+                    "معرض إلكتروني لتبادل الأفكار وإلهام التصميم (Inspiration Gallery) للمصممين."
+                ],
+                marketing: [
+                    "منصة لتقديم استشارات تسويقية سريعة ومباشرة عبر المحادثات.",
+                    "تطوير أداة ذكية لكتابة وتوليد العناوين الجذابة (SEO & Copywriting) للفيديوهات والمقالات.",
+                    "إنشاء نظام تحليل متقدم لمتابعة نمو المشتركين والتفاعل على منصات السوشيال ميديا.",
+                    "منصة إعلانية مصغرة تساعد أصحاب المشاريع الصغيرة في إطلاق حملاتهم الرقمية.",
+                    "أداة لجدولة النشر التلقائي على منصات متعددة في نفس اللحظة."
+                ]
+            },
+            en: {
+                code: [
+                    "Develop an interactive web platform connecting beginner programmers with micro-projects.",
+                    "Build a cloud tool to automatically generate and format CSS code quickly.",
+                    "Create an open-source Dashboard to manage tasks for Front-End developers.",
+                    "A web application to scan basic security vulnerabilities in startup websites.",
+                    "A platform to test website speed and performance with automated optimization reports."
+                ],
+                editing: [
+                    "A unified dashboard to track and manage ad revenues and channel sponsorships.",
+                    "Develop a web tool to schedule and review short-form videos (Shorts/Reels) before posting.",
+                    "A networking platform connecting channel owners with talented video editors.",
+                    "A web tool to generate optimized titles and descriptions for YouTube videos based on content.",
+                    "A dedicated micro cloud storage system for sharing huge raw video files among the team."
+                ],
+                design: [
+                    "A tool to generate harmonious color palettes with a single click.",
+                    "Create a free web library of customizable thumbnail designs.",
+                    "A platform to evaluate UI/UX designs and provide instant feedback.",
+                    "A web tool to merge, convert image formats, and resize for social media platforms.",
+                    "An inspiration gallery website for designers to share creative ideas."
+                ],
+                marketing: [
+                    "A platform providing fast, direct marketing consultations via chat.",
+                    "Develop a smart tool to write and generate catchy SEO titles and video copywriting.",
+                    "Create an advanced analytics system to monitor subscriber growth and social engagement.",
+                    "A micro advertising platform helping small business owners launch digital campaigns.",
+                    "A tool to schedule automated publishing across multiple platforms simultaneously."
+                ]
             }
-        }
+        };
 
-        function checkBuildingCollision(nx, ny, radius) {
-            for (let b of buildings) {
-                let cx = Math.max(b.x, Math.min(nx, b.x + b.width));
-                let cy = Math.max(b.y, Math.min(ny, b.y + b.height));
-                if (Math.hypot(nx - cx, ny - cy) < radius) return true;
-            }
-            return false;
-        }
-
-        let enemyTimer = 0;
-        function update() {
-            if (!isPlaying) return;
-            score++;
-            wantedStars = Math.min(5, Math.floor(score / 220) + 1);
-            if (screenShakeFrames > 0) screenShakeFrames--;
-
-            train.y += train.speed; if (train.y > 3500) train.y = -3500;
-
-            movingTrafficCars.forEach(car => {
-                car.x += Math.cos(car.angle) * car.speed; car.y += Math.sin(car.angle) * car.speed;
-                if (Math.random() < 0.02) car.angle += (Math.random() - 0.5);
-                if (checkBuildingCollision(car.x, car.y, 20)) car.angle += Math.PI;
-            });
-
-            // توليد جزيئات الدخان الحقيقي خلف السيارة المتسارعة
-            if (Math.abs(p1.car.speed) > 3) {
-                smokeParticles.push({ x: p1.car.x - Math.cos(p1.car.angle)*25, y: p1.car.y - Math.sin(p1.car.angle)*25, size: Math.random()*6+4, alpha: 0.5 });
-            }
-            smokeParticles.forEach((sp, idx) => {
-                sp.alpha -= 0.02; if(sp.alpha <= 0) smokeParticles.splice(idx, 1);
-            });
-
-            if (p1.state === 'driving') {
-                if (p1Left) p1.car.angle -= p1.car.turnSpeed;
-                if (p1Right) p1.car.angle += p1.car.turnSpeed;
-                if (p1.car.speed < p1.car.maxSpeed) p1.car.speed += p1.car.accel;
-                let nx = p1.car.x + Math.cos(p1.car.angle) * p1.car.speed;
-                let ny = p1.car.y + Math.sin(p1.car.angle) * p1.car.speed;
-                if (!checkBuildingCollision(nx, ny, p1.car.radius)) { 
-                    p1.car.x = nx; p1.car.y = ny; 
-                } else { 
-                    p1.car.speed = 1.0; screenShakeFrames = 8; playSound('crash'); 
-                }
-            } else if (p1.state === 'onFoot') {
-                if (p1Left) p1.foot.angle -= 0.08; if (p1Right) p1.foot.angle += 0.08;
-                let fnx = p1.foot.x + Math.cos(p1.foot.angle) * p1.foot.speed;
-                let fny = p1.foot.y + Math.sin(p1.foot.angle) * p1.foot.speed;
-                if (!checkBuildingCollision(fnx, fny, p1.foot.radius)) { p1.foot.x = fnx; p1.foot.y = fny; }
-            }
-
-            if (gameMode === 'coop' || gameMode === 'triple') {
-                if (p2.state === 'driving') {
-                    if (p2Left) p2.car.angle -= p2.car.turnSpeed; if (p2Right) p2.car.angle += p2.car.turnSpeed;
-                    if (p2.car.speed < p2.car.maxSpeed) p2.car.speed += p2.car.accel;
-                    let nx2 = p2.car.x + Math.cos(p2.car.angle) * p2.car.speed;
-                    let ny2 = p2.car.y + Math.sin(p2.car.angle) * p2.car.speed;
-                    if (!checkBuildingCollision(nx2, ny2, p2.car.radius)) { p2.car.x = nx2; p2.car.y = ny2; } else { p2.car.speed = 1.0; }
-                }
-            }
-
-            if (gameMode === 'triple') {
-                if (p3.state === 'driving') {
-                    if (p3Left) p3.car.angle -= p3.car.turnSpeed; if (p3Right) p3.car.angle += p3.car.turnSpeed;
-                    if (p3.car.speed < p3.car.maxSpeed) p3.car.speed += p3.car.accel;
-                    let nx3 = p3.car.x + Math.cos(p3.car.angle) * p3.car.speed;
-                    let ny3 = p3.car.y + Math.sin(p3.car.angle) * p3.car.speed;
-                    if (!checkBuildingCollision(nx3, ny3, p3.car.radius)) { p3.car.x = nx3; p3.car.y = ny3; } else { p3.car.speed = 1.0; }
-                }
-            }
-
-            goldCoins.forEach(coin => {
-                if (!coin.collected) {
-                    if (p1.state === 'driving' && Math.hypot(p1.car.x - coin.x, p1.car.y - coin.y) < 40) {
-                        coin.collected = true; coins += 10; localStorage.setItem('mk_coins', coins); playSound('coin');
-                    }
-                }
-            });
-
-            nitroBoosts.forEach(nitro => {
-                if (nitro.active && p1.state === 'driving' && Math.hypot(p1.car.x - nitro.x, p1.car.y - nitro.y) < 45) {
-                    nitro.active = false; p1.car.speed = 17.0; screenShakeFrames = 15;
-                }
-            });
-
-            enemyTimer++;
-            if (enemyTimer > 80 && cops.length < (3 + wantedStars * 2)) {
-                let spawnX = p1.car.x + (Math.random() > 0.5 ? 750 : -750);
-                let spawnY = p1.car.y + (Math.random() > 0.5 ? 750 : -750);
-                if (!checkBuildingCollision(spawnX, spawnY, 20)) {
-                    cops.push({ x: spawnX, y: spawnY, speed: 3.6, radius: 16, carAngle: 0 });
-                }
-                enemyTimer = 0;
-            }
-
-            cops.forEach(cop => {
-                let targetX = p1.state === 'driving' ? p1.car.x : p1.foot.x;
-                let targetY = p1.state === 'driving' ? p1.car.y : p1.foot.y;
-                let ang = Math.atan2(targetY - cop.y, targetX - cop.x);
-                let copNx = cop.x + Math.cos(ang) * cop.speed;
-                let copNy = cop.y + Math.sin(ang) * cop.speed;
-                if (!checkBuildingCollision(copNx, copNy, cop.radius)) { cop.x = copNx; cop.y = copNy; }
-                cop.carAngle = ang;
-
-                if (p1.state === 'driving' && Math.hypot(p1.car.x - cop.x, p1.car.y - cop.y) < 32) {
-                    p1.car.hitCount += 1; screenShakeFrames = 10; playSound('crash');
-                    if (p1.car.hitCount >= p1.car.maxHits) gameOver('انتهت اللعبة! تم القبض عليك من قبل الشرطة');
-                }
-            });
-        }
-
-        function drawCar(context, x, y, angle, bodyColor, roofColor, w, h, hasSiren = false) {
-            context.save();
-            context.translate(x, y); context.rotate(angle);
-            context.fillStyle = 'rgba(0,0,0,0.35)'; context.fillRect(-w/2 + 4, -h/2 + 4, w, h);
-            context.fillStyle = bodyColor; context.fillRect(-w/2, -h/2, w, h);
-            context.fillStyle = roofColor; context.fillRect(-w/4, -h/3, w/2, (h/3)*2);
-            context.fillStyle = '#f1c40f'; context.fillRect(-3, -5, 5, 5);
-            if (hasSiren) {
-                let t = Date.now() / 60;
-                context.fillStyle = Math.floor(t) % 2 === 0 ? '#ff0000' : '#0055ff';
-                context.fillRect(-3, -3, 6, 6);
-            }
-            context.restore();
-        }
-
-        function renderScene(targetCtx, playerView) {
-            targetCtx.fillStyle = '#8cd652';
-            targetCtx.fillRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
-
-            targetCtx.save();
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
             
-            // نظام اهتزاز الشاشة الفعلي (Screen Shake)
-            if (screenShakeFrames > 0) {
-                let shakeX = (Math.random() - 0.5) * 8;
-                let shakeY = (Math.random() - 0.5) * 8;
-                targetCtx.translate(shakeX, shakeY);
+            const htmlRoot = document.getElementById('htmlRoot');
+            if (currentLang === 'en') {
+                htmlRoot.setAttribute('lang', 'en');
+                htmlRoot.setAttribute('dir', 'ltr');
+            } else {
+                htmlRoot.setAttribute('lang', 'ar');
+                htmlRoot.setAttribute('dir', 'rtl');
             }
 
-            let camX = playerView.state === 'driving' ? playerView.car.x : playerView.foot.x;
-            let camY = playerView.state === 'driving' ? playerView.car.y : playerView.foot.y;
-            let camAngle = playerView.state === 'driving' ? playerView.car.angle : playerView.foot.angle;
-
-            targetCtx.translate(targetCtx.canvas.width / 2, targetCtx.canvas.height / 2);
-            targetCtx.rotate(-camAngle - Math.PI / 2);
-            targetCtx.translate(-camX, -camY);
-
-            // رسم الشوارع والأسفلت
-            targetCtx.fillStyle = '#3a3a3a';
-            for (let i = -4000; i <= 4000; i += 440) {
-                targetCtx.fillRect(i - 70, -4000, 140, 8000);
-                targetCtx.fillRect(-4000, i - 70, 8000, 140);
-            }
-
-            // سكة القطار
-            targetCtx.fillStyle = '#bdc3c7'; targetCtx.fillRect(480, -4000, 40, 8000);
-            let tx = 500, ty = train.y;
-            targetCtx.fillStyle = '#c0392b'; targetCtx.fillRect(tx - 25, ty - 60, 50, 120);
-
-            // رسم جزيئات الأتربة البيئية المتطايرة
-            targetCtx.fillStyle = 'rgba(255,255,255,0.3)';
-            dustParticles.forEach(d => {
-                targetCtx.fillRect(d.x, d.y, d.size, d.size);
-            });
-
-            // رسم جزيئات الدخان العادمة خلف السيارات
-            smokeParticles.forEach(sp => {
-                targetCtx.fillStyle = `rgba(150,150,150,${sp.alpha})`;
-                targetCtx.beginPath(); targetCtx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2); targetCtx.fill();
-            });
-
-            // المباني والشركات
-            buildings.forEach(b => {
-                targetCtx.fillStyle = b.color; targetCtx.fillRect(b.x, b.y, b.width, b.height);
-                targetCtx.strokeStyle = '#2c3e50'; targetCtx.lineWidth = 4; targetCtx.strokeRect(b.x, b.y, b.width, b.height);
-                targetCtx.fillStyle = '#f1c40f';
-                for (let wx = b.x + 18; wx < b.x + b.width - 15; wx += 35) {
-                    for (let wy = b.y + 18; wy < b.y + b.height - 15; wy += 45) { targetCtx.fillRect(wx, wy, 12, 18); }
-                }
-            });
-
-            movingTrafficCars.forEach(car => drawCar(targetCtx, car.x, car.y, car.angle, car.bodyColor, '#222', 46, 25));
-            cops.forEach(cop => drawCar(targetCtx, cop.x, cop.y, cop.carAngle, '#111', '#fff', 48, 26, true));
-
-            goldCoins.forEach(coin => {
-                if (!coin.collected) { targetCtx.fillStyle = '#f1c40f'; targetCtx.beginPath(); targetCtx.arc(coin.x, coin.y, 12, 0, Math.PI * 2); targetCtx.fill(); }
-            });
-
-            nitroBoosts.forEach(nitro => {
-                if (nitro.active) { targetCtx.fillStyle = '#00ffff'; targetCtx.beginPath(); targetCtx.arc(nitro.x, nitro.y, 13, 0, Math.PI * 2); targetCtx.fill(); }
-            });
-
-            if (p1.state === 'driving') drawCar(targetCtx, p1.car.x, p1.car.y, p1.car.angle, p1.car.bodyColor, '#f39c12', 48, 26, false);
-            else { targetCtx.fillStyle = p1.car.bodyColor; targetCtx.beginPath(); targetCtx.arc(p1.foot.x, p1.foot.y, p1.foot.radius, 0, Math.PI * 2); targetCtx.fill(); }
-
-            if (gameMode === 'coop' || gameMode === 'triple') {
-                if (p2.state === 'driving') drawCar(targetCtx, p2.car.x, p2.car.y, p2.car.angle, p2.car.bodyColor, '#f39c12', 48, 26);
-            }
-            if (gameMode === 'triple') {
-                if (p3.state === 'driving') drawCar(targetCtx, p3.car.x, p3.car.y, p3.car.angle, p3.car.bodyColor, '#f39c12', 48, 26);
-            }
-
-            targetCtx.restore();
+            const t = translations[currentLang];
+            document.getElementById('welcomeBadge').innerText = t.welcomeBadge;
+            document.getElementById('navFeatures').innerText = t.navFeatures;
+            document.getElementById('navTool').innerText = t.navTool;
+            document.getElementById('navBusiness').innerText = t.navBusiness;
+            document.getElementById('navCta').innerText = t.navCta;
+            document.getElementById('langSwitchBtn').innerText = t.langSwitchBtn;
+            document.getElementById('heroTitle').innerText = t.heroTitle;
+            document.getElementById('heroDesc').innerText = t.heroDesc;
+            document.getElementById('heroBtn1').innerText = t.heroBtn1;
+            document.getElementById('heroBtn2').innerText = t.heroBtn2;
+            document.getElementById('featuresHeading').innerText = t.featuresHeading;
+            document.getElementById('feat1Title').innerText = t.feat1Title;
+            document.getElementById('feat1Desc').innerText = t.feat1Desc;
+            document.getElementById('feat2Title').innerText = t.feat2Title;
+            document.getElementById('feat2Desc').innerText = t.feat2Desc;
+            document.getElementById('feat3Title').innerText = t.feat3Title;
+            document.getElementById('feat3Desc').innerText = t.feat3Desc;
+            document.getElementById('toolHeading').innerText = t.toolHeading;
+            document.getElementById('toolSub').innerText = t.toolSub;
+            document.getElementById('btnCode').innerText = t.btnCode;
+            document.getElementById('btnEditing').innerText = t.btnEditing;
+            document.getElementById('btnDesign').innerText = t.btnDesign;
+            document.getElementById('btnMarketing').innerText = t.btnMarketing;
+            document.getElementById('ideaResult').innerText = t.defaultResult;
+            document.getElementById('savedHeading').innerText = t.savedHeading;
+            document.getElementById('busHeading').innerText = t.busHeading;
+            document.getElementById('bus1Title').innerText = t.bus1Title;
+            document.getElementById('bus1Desc').innerText = t.bus1Desc;
+            document.getElementById('bus2Title').innerText = t.bus2Title;
+            document.getElementById('bus2Desc').innerText = t.bus2Desc;
+            document.getElementById('footerText').innerText = t.footerText;
+            
+            renderSavedIdeas();
         }
 
-        function drawMinimap() {
-            miniCtx.fillStyle = '#111'; miniCtx.fillRect(0, 0, 85, 85);
-            let mx = 42.5 + (p1.car.x / 50), my = 42.5 + (p1.car.y / 50);
-            miniCtx.fillStyle = '#e74c3c'; miniCtx.beginPath(); miniCtx.arc(mx, my, 4, 0, Math.PI * 2); miniCtx.fill();
+        function showIdea(category) {
+            const resultBox = document.getElementById('ideaResult');
+            
+            // إظهار تأثير التحميل (Loading Spinner)
+            const loadingText = currentLang === 'ar' ? 'جاري توليد الفكرة بالذكاء الاصطناعي...' : 'Generating idea with AI...';
+            resultBox.innerHTML = `<div style="text-align:center; padding: 20px;"><div class="spinner"></div><p style="margin-top:10px; color:#38bdf8;">${loadingText}</p></div>`;
+
+            setTimeout(() => {
+                const ideasList = ideasDatabase[currentLang][category];
+                const randomIdea = ideasList[Math.floor(Math.random() * ideasList.length)];
+                currentGeneratedIdea = randomIdea;
+                
+                const categoryNames = {
+                    ar: {
+                        code: "البرمجة والتطوير (Code)",
+                        editing: "المونتاج وصناعة المحتوى (Editing)",
+                        design: "التصميم والجرافيك (Design)",
+                        marketing: "التسويق الرقمي (Marketing)"
+                    },
+                    en: {
+                        code: "Coding & Development",
+                        editing: "Video Editing & Content",
+                        design: "UI/UX & Design",
+                        marketing: "Digital Marketing"
+                    }
+                };
+
+                const labelText = currentLang === 'ar' ? "فكرة مقترحة في مجال" : "Suggested idea in";
+                const copyText = currentLang === 'ar' ? "📋 نسخ النص" : "📋 Copy";
+                const saveText = currentLang === 'ar' ? "⭐ حفظ الفكرة" : "⭐ Save Idea";
+
+                resultBox.innerHTML = `
+                    <strong style="color: #38bdf8;">${labelText} ${categoryNames[currentLang][category]}:</strong><br><br>✨ ${randomIdea}
+                    <div class="result-actions">
+                        <button class="action-tool-btn" onclick="copyIdea()">${copyText}</button>
+                        <button class="action-tool-btn" onclick="saveIdea()">${saveText}</button>
+                    </div>
+                `;
+            }, 500);
         }
 
-        function draw() {
-            let starStr = '⭐'.repeat(wantedStars);
-            renderScene(ctx1, p1); 
-            document.getElementById('hud-1').textContent = `SCORE: ${score} | 🪙 ${coins} | ${starStr}`;
-            document.getElementById('speed-1').textContent = `SPD: ${Math.floor(p1.car.speed * 18)} KM/H`;
+        function copyIdea() {
+            if (!currentGeneratedIdea) return;
+            navigator.clipboard.writeText(currentGeneratedIdea);
+            const msg = currentLang === 'ar' ? '✨ تم نسخ الفكرة بنجاح!' : '✨ Idea copied successfully!';
+            alert(msg);
+        }
 
-            if (gameMode === 'coop' || gameMode === 'triple') { 
-                renderScene(ctx2, p2); 
-                document.getElementById('hud-2').textContent = `SCORE: ${score} | 🪙 ${coins} | P2`; 
-                document.getElementById('speed-2').textContent = `SPD: ${Math.floor(p2.car.speed * 18)} KM/H`;
+        function saveIdea() {
+            if (!currentGeneratedIdea) return;
+            if (!savedIdeas.includes(currentGeneratedIdea)) {
+                savedIdeas.push(currentGeneratedIdea);
+                localStorage.setItem('mk_saved_ideas', JSON.stringify(savedIdeas));
+                renderSavedIdeas();
+                const msg = currentLang === 'ar' ? '📌 تم حفظ الفكرة في المفضلة!' : '📌 Idea saved to favorites!';
+                alert(msg);
+            } else {
+                const msg = currentLang === 'ar' ? '⚠️ هذه الفكرة محفوظة مسبقاً!' : '⚠️ Idea is already saved!';
+                alert(msg);
             }
-            if (gameMode === 'triple') { 
-                renderScene(ctx3, p3); 
-                document.getElementById('hud-3').textContent = `SCORE: ${score} | 🪙 ${coins} | P3`; 
-                document.getElementById('speed-3').textContent = `SPD: ${Math.floor(p3.car.speed * 18)} KM/H`;
+        }
+
+        function removeSavedIdea(index) {
+            savedIdeas.splice(index, 1);
+            localStorage.setItem('mk_saved_ideas', JSON.stringify(savedIdeas));
+            renderSavedIdeas();
+        }
+
+        function renderSavedIdeas() {
+            const listEl = document.getElementById('savedList');
+            if (savedIdeas.length === 0) {
+                const noText = currentLang === 'ar' ? "لا توجد أفكار محفوظة حالياً..." : "No saved ideas yet...";
+                listEl.innerHTML = `<li style="color: #64748b; text-align: center; display: block;">${noText}</li>`;
+                return;
             }
-            drawMinimap();
+
+            listEl.innerHTML = '';
+            savedIdeas.forEach((idea, index) => {
+                listEl.innerHTML += `
+                    <li>
+                        <span style="max-width: 85%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">✨ ${idea}</span>
+                        <button onclick="removeSavedIdea(${index})" title="حذف"><i class="fa-solid fa-trash"></i></button>
+                    </li>
+                `;
+            });
         }
 
-        function loop() {
-            if (!isPlaying) return;
-            update(); draw(); requestAnimationFrame(loop);
-        }
-
-        function gameOver(msg) {
-            isPlaying = false; gameContainer.style.display = 'none'; uiScreen.style.display = 'flex';
-            uiScreen.querySelector('h1').textContent = '💥 ' + msg;
-            uiScreen.querySelector('h2').textContent = 'النتيجة النهائية: ' + score + ' | إجمالي العملات: ' + coins;
-        }
+        // تشغيل تحميل الأفكار المحفوظة عند فتح الصفحة
+        renderSavedIdeas();
     </script>
 </body>
 </html> 
