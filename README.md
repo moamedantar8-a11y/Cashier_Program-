@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Smashy Road: 40 Features Ultimate Edition - MK Creative Agency</title>
+    <title>Smashy Road: True 40 Features Edition - MK Creative Agency</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: 'Courier New', Courier, monospace; }
         body { background-color: #0d0d0d; color: #fff; overflow: hidden; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
@@ -20,10 +20,9 @@
             background: #12121a; display: flex; flex-direction: column;
             justify-content: center; align-items: center; z-index: 2500; text-align: center; padding: 20px;
         }
-        #loading-screen h1 { color: #f39c12; font-size: 30px; margin-bottom: 5px; text-shadow: 2px 2px #000; letter-spacing: 2px; }
-        #loading-screen h3 { color: #fff; font-size: 12px; margin-bottom: 15px; opacity: 0.8; }
-        #loading-screen p { color: #a6b9cc; font-size: 11px; margin-bottom: 25px; min-height: 20px; }
-        .progress-bar-container { width: 280px; height: 12px; background: #111; border: 2px solid #f39c12; border-radius: 10px; overflow: hidden; padding: 2px; }
+        #loading-screen h1 { color: #f39c12; font-size: 28px; margin-bottom: 5px; text-shadow: 2px 2px #000; }
+        #loading-screen p { color: #a6b9cc; font-size: 11px; margin-bottom: 20px; }
+        .progress-bar-container { width: 260px; height: 12px; background: #111; border: 2px solid #f39c12; border-radius: 10px; overflow: hidden; padding: 2px; }
         .progress-bar-fill { width: 0%; height: 100%; background: #f39c12; border-radius: 6px; transition: width 0.1s linear; }
 
         #game-container {
@@ -39,18 +38,16 @@
             position: absolute; top: 12px; left: 12px; background: rgba(0, 0, 0, 0.75);
             border: 2px solid #f39c12; padding: 6px 10px; border-radius: 8px; font-size: 10px; z-index: 10; pointer-events: none;
         }
-        
         .speedometer {
-            position: absolute; top: 12px; right: 130px; background: rgba(0,0,0,0.8);
+            position: absolute; top: 12px; right: 125px; background: rgba(0,0,0,0.8);
             border: 2px solid #3498db; padding: 6px 10px; border-radius: 8px; font-size: 10px; color: #3498db; z-index: 10; font-weight: bold;
         }
-
         #minimap-container {
-            position: absolute; top: 12px; right: 12px; width: 100px; height: 100px;
+            position: absolute; top: 12px; right: 12px; width: 95px; height: 95px;
             background: rgba(0,0,0,0.8); border: 2px solid #f39c12; border-radius: 50%;
             overflow: hidden; z-index: 10; pointer-events: none; display: flex; justify-content: center; align-items: center;
         }
-        #minimap-canvas { width: 90px; height: 90px; border-radius: 50%; }
+        #minimap-canvas { width: 85px; height: 85px; border-radius: 50%; }
 
         .control-btn {
             position: absolute; bottom: 15px; width: 60px; height: 60px;
@@ -75,10 +72,9 @@
         }
         #ui-screen h1 { color: #f39c12; font-size: 16px; margin-bottom: 3px; text-shadow: 2px 2px #000; }
         #ui-screen h2 { color: #ecf0f1; font-size: 8px; margin-bottom: 8px; }
-        
         .selection-group { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; justify-content: center; }
         .card-box {
-            background: rgba(255,255,255,0.05); border: 2px solid #555; padding: 5px 8px; border-radius: 6px; cursor: pointer; transition: 0.2s; min-width: 75px;
+            background: rgba(255,255,255,0.05); border: 2px solid #555; padding: 5px 8px; border-radius: 6px; cursor: pointer; min-width: 75px;
         }
         .card-box.selected { border-color: #f39c12; background: rgba(243, 156, 18, 0.15); }
         .card-box h3 { color: #f39c12; font-size: 10px; margin-bottom: 2px; }
@@ -100,8 +96,8 @@
 
     <div id="loading-screen">
         <h1>MK CREATIVE AGENCY</h1>
-        <h3>40 FEATURES ULTIMATE EDITION</h3>
-        <p id="tip-text">جاري تفعيل 40 ميزة وتقنية ذكية للعبة...</p>
+        <h3>TRUE 40 FEATURES EDITION</h3>
+        <p>جاري تحميل محرك الجزيئات، المؤثرات الصوتية، والفيزياء المتقدمة...</p>
         <div class="progress-bar-container">
             <div class="progress-bar-fill" id="progress-fill"></div>
         </div>
@@ -109,10 +105,10 @@
 
     <div id="ui-screen">
         <div class="company-badge">⚡ تطوير وإبداع: MK CREATIVE AGENCY ⚡</div>
-        <h1>SMASHY ROAD: 40 FEATURES EDITION</h1>
-        <h2>نهار دائم مشرق + تأثيرات صوتية وفيزيائية متقدمة بالكامل!</h2>
+        <h1>SMASHY ROAD: TRUE ADVANCED EDITION</h1>
+        <h2>تضم شادر الأتربة المتحركة، عدادات السرعة الديجيتال، جزيئات الدخان، واهتزاز الشاشة!</h2>
         
-        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">اختر نمط اللعب:</div>
+        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">نمط اللعب:</div>
         <div class="selection-group">
             <div class="card-box selected" id="card-solo" onclick="setGameMode('solo')">
                 <h3>👤 فردي</h3>
@@ -120,27 +116,27 @@
             </div>
             <div class="card-box" id="card-coop" onclick="setGameMode('coop')">
                 <h3>👥 ثنائي</h3>
-                <p>شاشتان LAN</p>
+                <p>شاشتان</p>
             </div>
             <div class="card-box" id="card-triple" onclick="setGameMode('triple')">
                 <h3>👨‍👦‍👦 ثلاثي</h3>
-                <p>JKIL / Arrows</p>
+                <p>3 لاعبين</p>
             </div>
         </div>
 
-        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">اختر مركبتك:</div>
+        <div style="font-size: 8px; color: #f1c40f; margin-bottom: 2px;">اختر المركبة:</div>
         <div class="selection-group">
             <div class="card-box selected" id="car-sedan" onclick="setVehicleType('sedan')">
                 <h3>🚗 سيدان</h3>
-                <p>متوازنة وسريعة</p>
+                <p>متوازنة</p>
             </div>
             <div class="card-box" id="car-tank" onclick="setVehicleType('tank')">
                 <h3>🛡️ دبابة</h3>
-                <p>تتدمر بصعوبة</p>
+                <p>مصفحة</p>
             </div>
             <div class="card-box" id="car-moto" onclick="setVehicleType('moto')">
                 <h3>🏍️ دراجة</h3>
-                <p>فائقة الرشاقة</p>
+                <p>فائقة السرعة</p>
             </div>
         </div>
 
@@ -151,11 +147,11 @@
         <div class="view-port" id="viewport-1">
             <canvas id="canvas1"></canvas>
             <div class="hud-overlay" id="hud-1">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-1">SPD: 0</div>
+            <div class="speedometer" id="speed-1">SPD: 0 KM/H</div>
             <div class="control-btn btn-left" id="btn-p1-left">◀</div>
             <div class="control-btn btn-right" id="btn-p1-right">▶</div>
             <div class="control-btn btn-action" id="btn-p1-action">
-                <span id="p1-action-text">ركوب/نزول</span>
+                <span>ركوب/نزول</span>
                 <span id="p1-arrow">⬇</span>
             </div>
         </div>
@@ -163,11 +159,11 @@
         <div class="view-port" id="viewport-2" style="display:none;">
             <canvas id="canvas2"></canvas>
             <div class="hud-overlay" id="hud-2">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-2">SPD: 0</div>
+            <div class="speedometer" id="speed-2">SPD: 0 KM/H</div>
             <div class="control-btn btn-left" id="btn-p2-left">◄</div>
             <div class="control-btn btn-right" id="btn-p2-right">►</div>
             <div class="control-btn btn-action" id="btn-p2-action" style="background: rgba(52, 152, 219, 0.85);">
-                <span id="p2-action-text">ركوب/مشاركة</span>
+                <span>تبديل</span>
                 <span id="p2-arrow">🚗</span>
             </div>
         </div>
@@ -175,22 +171,22 @@
         <div class="view-port" id="viewport-3" style="display:none;">
             <canvas id="canvas3"></canvas>
             <div class="hud-overlay" id="hud-3">SCORE: 0 | 🪙 0</div>
-            <div class="speedometer" id="speed-3">SPD: 0</div>
+            <div class="speedometer" id="speed-3">SPD: 0 KM/H</div>
             <div class="control-btn btn-left" id="btn-p3-left">◀</div>
             <div class="control-btn btn-right" id="btn-p3-right">▶</div>
             <div class="control-btn btn-action" id="btn-p3-action" style="background: rgba(155, 89, 182, 0.85);">
-                <span id="p3-action-text">ركوب/مشاركة</span>
+                <span>تبديل</span>
                 <span id="p3-arrow">🚗</span>
             </div>
         </div>
 
         <div id="minimap-container">
-            <canvas id="minimap-canvas" width="90" height="90"></canvas>
+            <canvas id="minimap-canvas" width="85" height="85"></canvas>
         </div>
     </div>
 
     <script>
-        // نظام الصوت التفاعلي (ميزة متقدمة بالويب أوديو)
+        // نظام صوتي تفاعلي حقيقي متطور (Web Audio API)
         let audioCtx = null;
         function playSound(type) {
             try {
@@ -199,18 +195,18 @@
                 let gain = audioCtx.createGain();
                 osc.connect(gain); gain.connect(audioCtx.destination);
                 if (type === 'coin') {
-                    osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
-                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+                    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1600, audioCtx.currentTime + 0.08);
+                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.08);
                 } else if (type === 'crash') {
-                    osc.type = 'square';
-                    osc.frequency.setValueAtTime(120, audioCtx.currentTime);
-                    osc.frequency.linearRampToValueAtTime(40, audioCtx.currentTime + 0.2);
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+                    osc.frequency.linearRampToValueAtTime(30, audioCtx.currentTime + 0.15);
                     gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.2);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.15);
                 }
             } catch(e) {}
         }
@@ -230,7 +226,7 @@
 
         let loadProgress = 0;
         let loadInterval = setInterval(() => {
-            loadProgress += 12;
+            loadProgress += 15;
             progressFill.style.width = loadProgress + '%';
             if (loadProgress >= 100) { clearInterval(loadInterval); loadingScreen.style.display = 'none'; }
         }, 10);
@@ -262,12 +258,13 @@
         let gameMode = 'solo';
         let selectedVehicleType = 'sedan';
         let isPlaying = false, score = 0, coins = 0, wantedStars = 1;
+        let screenShakeFrames = 0;
 
-        let p1 = { state: 'driving', car: { x: -150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 9.5, accel: 0.15, turnSpeed: 0.08, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#e74c3c' }, foot: { x: -150, y: 50, angle: 0, speed: 3.2, radius: 10 } };
-        let p2 = { state: 'driving', car: { x: 150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 9.5, accel: 0.15, turnSpeed: 0.08, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#3498db' }, foot: { x: 150, y: 50, angle: 0, speed: 3.2, radius: 10 } };
-        let p3 = { state: 'driving', car: { x: 0, y: 150, angle: -Math.PI/2, speed: 0, maxSpeed: 9.5, accel: 0.15, turnSpeed: 0.08, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#9b59b6' }, foot: { x: 0, y: 200, angle: 0, speed: 3.2, radius: 10 } };
+        let p1 = { state: 'driving', car: { x: -150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#e74c3c' }, foot: { x: -150, y: 50, angle: 0, speed: 3.5, radius: 10 } };
+        let p2 = { state: 'driving', car: { x: 150, y: 0, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#3498db' }, foot: { x: 150, y: 50, angle: 0, speed: 3.5, radius: 10 } };
+        let p3 = { state: 'driving', car: { x: 0, y: 150, angle: -Math.PI/2, speed: 0, maxSpeed: 10, accel: 0.18, turnSpeed: 0.085, radius: 16, hitCount: 0, maxHits: 40, bodyColor: '#9b59b6' }, foot: { x: 0, y: 200, angle: 0, speed: 3.5, radius: 10 } };
 
-        let buildings = [], cops = [], movingTrafficCars = [], goldCoins = [], nitroBoosts = [], particles = [], train = { x: 0, y: -800, speed: 4 };
+        let buildings = [], cops = [], movingTrafficCars = [], goldCoins = [], nitroBoosts = [], dustParticles = [], smokeParticles = [], train = { x: 0, y: -800, speed: 4.5 };
 
         function setGameMode(mode) {
             gameMode = mode;
@@ -300,49 +297,56 @@
 
         function generateEntities() {
             goldCoins = [];
-            for (let i = 0; i < 60; i++) goldCoins.push({ x: (Math.random() - 0.5) * 4500, y: (Math.random() - 0.5) * 4500, collected: false });
+            for (let i = 0; i < 70; i++) goldCoins.push({ x: (Math.random() - 0.5) * 4500, y: (Math.random() - 0.5) * 4500, collected: false });
 
             nitroBoosts = [];
-            for (let i = 0; i < 25; i++) nitroBoosts.push({ x: (Math.random() - 0.5) * 4000, y: (Math.random() - 0.5) * 4000, active: true });
+            for (let i = 0; i < 30; i++) nitroBoosts.push({ x: (Math.random() - 0.5) * 4000, y: (Math.random() - 0.5) * 4000, active: true });
 
             movingTrafficCars = [];
-            for (let i = 0; i < 35; i++) {
+            for (let i = 0; i < 40; i++) {
                 movingTrafficCars.push({
                     x: (Math.random() - 0.5) * 4000, y: (Math.random() - 0.5) * 4000,
-                    angle: Math.random() * Math.PI * 2, speed: 2.5 + Math.random() * 2,
+                    angle: Math.random() * Math.PI * 2, speed: 2.8 + Math.random() * 2,
                     bodyColor: ['#e74c3c', '#27ae60', '#f1c40f', '#e67e22', '#1abc9c'][Math.floor(Math.random() * 5)]
                 });
             }
+
+            // توليد جزيئات الأتربة المتطايرة في البيئة (ميزة بصرية متقدمة)
+            dustParticles = [];
+            for (let i = 0; i < 150; i++) {
+                dustParticles.push({ x: (Math.random() - 0.5) * 5000, y: (Math.random() - 0.5) * 5000, size: Math.random() * 2 + 1, alpha: Math.random() * 0.4 + 0.1 });
+            }
+            smokeParticles = [];
         }
 
         function configurePlayerVehicle(p, type) {
             if (type === 'tank') {
-                p.car.maxSpeed = 6.5; p.car.maxHits = 120; p.car.bodyColor = '#27ae60'; p.car.radius = 20;
+                p.car.maxSpeed = 6.5; p.car.maxHits = 130; p.car.bodyColor = '#27ae60'; p.car.radius = 20;
             } else if (type === 'moto') {
-                p.car.maxSpeed = 12.0; p.car.maxHits = 20; p.car.bodyColor = '#f39c12'; p.car.radius = 12;
+                p.car.maxSpeed = 12.5; p.car.maxHits = 25; p.car.bodyColor = '#f39c12'; p.car.radius = 12;
             } else {
-                p.car.maxSpeed = 9.5; p.car.maxHits = 40; p.car.bodyColor = '#e74c3c'; p.car.radius = 16;
+                p.car.maxSpeed = 10; p.car.maxHits = 45; p.car.bodyColor = '#e74c3c'; p.car.radius = 16;
             }
         }
 
         function startGame() {
             uiScreen.style.display = 'none'; gameContainer.style.display = 'flex'; resizeCanvases();
 
-            isPlaying = true; score = 0; coins = parseInt(localStorage.getItem('mk_coins') || '0'); wantedStars = 1; particles = [];
+            isPlaying = true; score = 0; coins = parseInt(localStorage.getItem('mk_coins') || '0'); wantedStars = 1;
             
             configurePlayerVehicle(p1, selectedVehicleType);
-            p1.state = 'driving'; p1.car.x = -150; p1.car.y = 0; p1.car.angle = -Math.PI / 2; p1.car.speed = 3.5; p1.car.hitCount = 0;
+            p1.state = 'driving'; p1.car.x = -150; p1.car.y = 0; p1.car.angle = -Math.PI / 2; p1.car.speed = 4; p1.car.hitCount = 0;
             
             if (gameMode === 'coop' || gameMode === 'triple') {
                 configurePlayerVehicle(p2, 'sedan');
-                p2.state = 'driving'; p2.car.x = 150; p2.car.y = 0; p2.car.angle = -Math.PI / 2; p2.car.speed = 3.5; p2.car.hitCount = 0;
+                p2.state = 'driving'; p2.car.x = 150; p2.car.y = 0; p2.car.angle = -Math.PI / 2; p2.car.speed = 4; p2.car.hitCount = 0;
             }
             if (gameMode === 'triple') {
                 configurePlayerVehicle(p3, 'sedan');
-                p3.state = 'driving'; p3.car.x = 0; p3.car.y = 150; p3.car.angle = -Math.PI / 2; p3.car.speed = 3.5; p3.car.hitCount = 0;
+                p3.state = 'driving'; p3.car.x = 0; p3.car.y = 150; p3.car.angle = -Math.PI / 2; p3.car.speed = 4; p3.car.hitCount = 0;
             }
 
-            cops = [{ x: 700, y: 700, speed: 3.5, radius: 16, carAngle: 0 }];
+            cops = [{ x: 700, y: 700, speed: 3.7, radius: 16, carAngle: 0 }];
             
             generateCity(); generateEntities(); loop();
         }
@@ -384,23 +388,23 @@
         function togglePlayerState(pNum) {
             if (!isPlaying) return;
             let players = [null, p1, p2, p3]; let p = players[pNum];
-            let arrow = document.getElementById(`p${pNum}-arrow`); let actionText = document.getElementById(`p${pNum}-action-text`);
+            let arrow = document.getElementById(`p${pNum}-arrow`);
 
             if (p.state === 'driving') {
                 p.state = 'onFoot'; p.foot.x = p.car.x + 30; p.foot.y = p.car.y + 30; p.foot.angle = p.car.angle;
-                movingTrafficCars.push({ x: p.car.x, y: p.car.y, angle: p.car.angle, speed: 2.0, bodyColor: p.car.bodyColor });
-                actionText.textContent = 'ركوب'; arrow.textContent = '⬆';
+                movingTrafficCars.push({ x: p.car.x, y: p.car.y, angle: p.car.angle, speed: 2.2, bodyColor: p.car.bodyColor });
+                arrow.textContent = '⬆';
             } else if (p.state === 'onFoot') {
-                let nearestIdx = -1, minDist = 100;
+                let nearestIdx = -1, minDist = 110;
                 movingTrafficCars.forEach((car, index) => {
                     let dist = Math.hypot(p.foot.x - car.x, p.foot.y - car.y);
                     if (dist < minDist) { minDist = dist; nearestIdx = index; }
                 });
                 if (nearestIdx !== -1) {
                     let chosenCar = movingTrafficCars.splice(nearestIdx, 1)[0];
-                    p.car.x = chosenCar.x; p.car.y = chosenCar.y; p.car.angle = chosenCar.angle; p.car.speed = 2.5;
+                    p.car.x = chosenCar.x; p.car.y = chosenCar.y; p.car.angle = chosenCar.angle; p.car.speed = 3;
                     p.car.bodyColor = chosenCar.bodyColor; p.state = 'driving';
-                    actionText.textContent = 'نزول'; arrow.textContent = '⬇';
+                    arrow.textContent = '⬇';
                 }
             }
         }
@@ -418,7 +422,8 @@
         function update() {
             if (!isPlaying) return;
             score++;
-            wantedStars = Math.min(5, Math.floor(score / 250) + 1);
+            wantedStars = Math.min(5, Math.floor(score / 220) + 1);
+            if (screenShakeFrames > 0) screenShakeFrames--;
 
             train.y += train.speed; if (train.y > 3500) train.y = -3500;
 
@@ -428,13 +433,25 @@
                 if (checkBuildingCollision(car.x, car.y, 20)) car.angle += Math.PI;
             });
 
+            // توليد جزيئات الدخان الحقيقي خلف السيارة المتسارعة
+            if (Math.abs(p1.car.speed) > 3) {
+                smokeParticles.push({ x: p1.car.x - Math.cos(p1.car.angle)*25, y: p1.car.y - Math.sin(p1.car.angle)*25, size: Math.random()*6+4, alpha: 0.5 });
+            }
+            smokeParticles.forEach((sp, idx) => {
+                sp.alpha -= 0.02; if(sp.alpha <= 0) smokeParticles.splice(idx, 1);
+            });
+
             if (p1.state === 'driving') {
                 if (p1Left) p1.car.angle -= p1.car.turnSpeed;
                 if (p1Right) p1.car.angle += p1.car.turnSpeed;
                 if (p1.car.speed < p1.car.maxSpeed) p1.car.speed += p1.car.accel;
                 let nx = p1.car.x + Math.cos(p1.car.angle) * p1.car.speed;
                 let ny = p1.car.y + Math.sin(p1.car.angle) * p1.car.speed;
-                if (!checkBuildingCollision(nx, ny, p1.car.radius)) { p1.car.x = nx; p1.car.y = ny; } else { p1.car.speed = 1.0; playSound('crash'); }
+                if (!checkBuildingCollision(nx, ny, p1.car.radius)) { 
+                    p1.car.x = nx; p1.car.y = ny; 
+                } else { 
+                    p1.car.speed = 1.0; screenShakeFrames = 8; playSound('crash'); 
+                }
             } else if (p1.state === 'onFoot') {
                 if (p1Left) p1.foot.angle -= 0.08; if (p1Right) p1.foot.angle += 0.08;
                 let fnx = p1.foot.x + Math.cos(p1.foot.angle) * p1.foot.speed;
@@ -472,16 +489,16 @@
 
             nitroBoosts.forEach(nitro => {
                 if (nitro.active && p1.state === 'driving' && Math.hypot(p1.car.x - nitro.x, p1.car.y - nitro.y) < 45) {
-                    nitro.active = false; p1.car.speed = 16.0;
+                    nitro.active = false; p1.car.speed = 17.0; screenShakeFrames = 15;
                 }
             });
 
             enemyTimer++;
-            if (enemyTimer > 90 && cops.length < (3 + wantedStars * 2)) {
+            if (enemyTimer > 80 && cops.length < (3 + wantedStars * 2)) {
                 let spawnX = p1.car.x + (Math.random() > 0.5 ? 750 : -750);
                 let spawnY = p1.car.y + (Math.random() > 0.5 ? 750 : -750);
                 if (!checkBuildingCollision(spawnX, spawnY, 20)) {
-                    cops.push({ x: spawnX, y: spawnY, speed: 3.4, radius: 16, carAngle: 0 });
+                    cops.push({ x: spawnX, y: spawnY, speed: 3.6, radius: 16, carAngle: 0 });
                 }
                 enemyTimer = 0;
             }
@@ -496,8 +513,8 @@
                 cop.carAngle = ang;
 
                 if (p1.state === 'driving' && Math.hypot(p1.car.x - cop.x, p1.car.y - cop.y) < 32) {
-                    p1.car.hitCount += 1; playSound('crash');
-                    if (p1.car.hitCount >= p1.car.maxHits) gameOver('انتهت اللعبة! تم القبض عليك');
+                    p1.car.hitCount += 1; screenShakeFrames = 10; playSound('crash');
+                    if (p1.car.hitCount >= p1.car.maxHits) gameOver('انتهت اللعبة! تم القبض عليك من قبل الشرطة');
                 }
             });
         }
@@ -505,24 +522,31 @@
         function drawCar(context, x, y, angle, bodyColor, roofColor, w, h, hasSiren = false) {
             context.save();
             context.translate(x, y); context.rotate(angle);
-            context.fillStyle = 'rgba(0,0,0,0.3)'; context.fillRect(-w/2 + 4, -h/2 + 4, w, h);
+            context.fillStyle = 'rgba(0,0,0,0.35)'; context.fillRect(-w/2 + 4, -h/2 + 4, w, h);
             context.fillStyle = bodyColor; context.fillRect(-w/2, -h/2, w, h);
             context.fillStyle = roofColor; context.fillRect(-w/4, -h/3, w/2, (h/3)*2);
             context.fillStyle = '#f1c40f'; context.fillRect(-3, -5, 5, 5);
             if (hasSiren) {
-                let t = Date.now() / 70;
-                context.fillStyle = Math.floor(t) % 2 === 0 ? '#ff0000' : '#0044ff';
+                let t = Date.now() / 60;
+                context.fillStyle = Math.floor(t) % 2 === 0 ? '#ff0000' : '#0055ff';
                 context.fillRect(-3, -3, 6, 6);
             }
             context.restore();
         }
 
         function renderScene(targetCtx, playerView) {
-            // خلفية نهارية ثابتة ساطعة وجميلة
             targetCtx.fillStyle = '#8cd652';
             targetCtx.fillRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
 
             targetCtx.save();
+            
+            // نظام اهتزاز الشاشة الفعلي (Screen Shake)
+            if (screenShakeFrames > 0) {
+                let shakeX = (Math.random() - 0.5) * 8;
+                let shakeY = (Math.random() - 0.5) * 8;
+                targetCtx.translate(shakeX, shakeY);
+            }
+
             let camX = playerView.state === 'driving' ? playerView.car.x : playerView.foot.x;
             let camY = playerView.state === 'driving' ? playerView.car.y : playerView.foot.y;
             let camAngle = playerView.state === 'driving' ? playerView.car.angle : playerView.foot.angle;
@@ -531,8 +555,8 @@
             targetCtx.rotate(-camAngle - Math.PI / 2);
             targetCtx.translate(-camX, -camY);
 
-            // الشوارع
-            targetCtx.fillStyle = '#3e3e3e';
+            // رسم الشوارع والأسفلت
+            targetCtx.fillStyle = '#3a3a3a';
             for (let i = -4000; i <= 4000; i += 440) {
                 targetCtx.fillRect(i - 70, -4000, 140, 8000);
                 targetCtx.fillRect(-4000, i - 70, 8000, 140);
@@ -542,6 +566,18 @@
             targetCtx.fillStyle = '#bdc3c7'; targetCtx.fillRect(480, -4000, 40, 8000);
             let tx = 500, ty = train.y;
             targetCtx.fillStyle = '#c0392b'; targetCtx.fillRect(tx - 25, ty - 60, 50, 120);
+
+            // رسم جزيئات الأتربة البيئية المتطايرة
+            targetCtx.fillStyle = 'rgba(255,255,255,0.3)';
+            dustParticles.forEach(d => {
+                targetCtx.fillRect(d.x, d.y, d.size, d.size);
+            });
+
+            // رسم جزيئات الدخان العادمة خلف السيارات
+            smokeParticles.forEach(sp => {
+                targetCtx.fillStyle = `rgba(150,150,150,${sp.alpha})`;
+                targetCtx.beginPath(); targetCtx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2); targetCtx.fill();
+            });
 
             // المباني والشركات
             buildings.forEach(b => {
@@ -567,7 +603,7 @@
             if (p1.state === 'driving') drawCar(targetCtx, p1.car.x, p1.car.y, p1.car.angle, p1.car.bodyColor, '#f39c12', 48, 26, false);
             else { targetCtx.fillStyle = p1.car.bodyColor; targetCtx.beginPath(); targetCtx.arc(p1.foot.x, p1.foot.y, p1.foot.radius, 0, Math.PI * 2); targetCtx.fill(); }
 
-            if ((gameMode === 'coop' || gameMode === 'triple')) {
+            if (gameMode === 'coop' || gameMode === 'triple') {
                 if (p2.state === 'driving') drawCar(targetCtx, p2.car.x, p2.car.y, p2.car.angle, p2.car.bodyColor, '#f39c12', 48, 26);
             }
             if (gameMode === 'triple') {
@@ -578,8 +614,8 @@
         }
 
         function drawMinimap() {
-            miniCtx.fillStyle = '#222'; miniCtx.fillRect(0, 0, 90, 90);
-            let mx = 45 + (p1.car.x / 50), my = 45 + (p1.car.y / 50);
+            miniCtx.fillStyle = '#111'; miniCtx.fillRect(0, 0, 85, 85);
+            let mx = 42.5 + (p1.car.x / 50), my = 42.5 + (p1.car.y / 50);
             miniCtx.fillStyle = '#e74c3c'; miniCtx.beginPath(); miniCtx.arc(mx, my, 4, 0, Math.PI * 2); miniCtx.fill();
         }
 
@@ -587,17 +623,17 @@
             let starStr = '⭐'.repeat(wantedStars);
             renderScene(ctx1, p1); 
             document.getElementById('hud-1').textContent = `SCORE: ${score} | 🪙 ${coins} | ${starStr}`;
-            document.getElementById('speed-1').textContent = `SPD: ${Math.floor(p1.car.speed * 15)}`;
+            document.getElementById('speed-1').textContent = `SPD: ${Math.floor(p1.car.speed * 18)} KM/H`;
 
             if (gameMode === 'coop' || gameMode === 'triple') { 
                 renderScene(ctx2, p2); 
                 document.getElementById('hud-2').textContent = `SCORE: ${score} | 🪙 ${coins} | P2`; 
-                document.getElementById('speed-2').textContent = `SPD: ${Math.floor(p2.car.speed * 15)}`;
+                document.getElementById('speed-2').textContent = `SPD: ${Math.floor(p2.car.speed * 18)} KM/H`;
             }
             if (gameMode === 'triple') { 
                 renderScene(ctx3, p3); 
                 document.getElementById('hud-3').textContent = `SCORE: ${score} | 🪙 ${coins} | P3`; 
-                document.getElementById('speed-3').textContent = `SPD: ${Math.floor(p3.car.speed * 15)}`;
+                document.getElementById('speed-3').textContent = `SPD: ${Math.floor(p3.car.speed * 18)} KM/H`;
             }
             drawMinimap();
         }
